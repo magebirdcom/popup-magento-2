@@ -12,6 +12,6 @@
   },
     "require": {
         "magebirdcom/popup-lib": "*"
-    }  
+    },  
   "minimum-stability": "dev"
 }
