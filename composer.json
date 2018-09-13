@@ -25,7 +25,7 @@
   ]
     },  
   "version": "1.4.7",
-  "license": "SEE LICENSE IN LICENSE.md",
+  "license": "proprietary",
   "autoload": {
       "files": [ "registration.php" ],
       "psr-4": {
