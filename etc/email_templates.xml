@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Email/etc/email_templates.xsd">
+<template id="popup_coupon_newsletter" label="Email Form" file="popup_coupon_newsletter.html" type="html" module="Magebird_Popup" area="frontend"/>
+</config>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="after.body.start" label="Page Top">
+                <block template="script.phtml" before="-" class="Magebird\Popup\Block\Script" name="magebird_popup_script"/>
+        </referenceContainer>                     
+    </body>
+    <head>
+        <css src="Magebird_Popup::css/style.css"/> 
+        <link src="Magebird_Popup::js/main.js"/>
+    </head>      
+</page>

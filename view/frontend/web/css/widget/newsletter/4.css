@@ -1,0 +1,75 @@
+.cssLoadedChecker2.moctod-dribegam{
+  display:none; /*DONT CHANGE THIS LINE! jQuery use this to check if css is loaded*/              
+}
+
+.newsletterPopup.tp4 form input {
+    height:20px;
+    padding: 10px 5px;
+    float: left;   
+    font-size: 15px;
+    font-weight:bold;
+    border: 0;
+    background: #eee;
+    -moz-border-radius: 3px 0 0 3px; 
+    -webkit-border-radius: 3px 0 0 3px; 
+    -o-border-radius: 3px 0 0 3px; 
+    -ms-border-radius: 3px 0 0 3px; 
+    -khtml-border-radius: 3px 0 0 3px; 
+    border-radius: 3px 0 0 3px;  
+    box-shadow: 1px 0 2px 0 rgba(0,0,0,0.3) inset;   
+}
+
+.newsletterPopup.tp4 form input:focus {
+    outline: 0;
+    background: #fff;
+    box-shadow: 1px 0 2px rgba(0,0,0,0.4) inset;
+}
+
+.newsletterPopup.tp4 form button { 
+    height:40px;
+    overflow: visible;
+    position: relative;
+    border: 0;
+    padding: 0 15px;
+    cursor: pointer;
+    padding:0 15px;
+    font-size: 15px;
+    font-weight:bold;
+    text-transform: uppercase;  
+    -moz-border-radius: 0 3px 3px 0;    
+    -webkit-border-radius: 0 3px 3px 0;    
+    -o-border-radius: 0 3px 3px 0;    
+    -ms-border-radius: 0 3px 3px 0;    
+    -khtml-border-radius: 0 3px 3px 0;         
+    border-radius: 0 3px 3px 0;     
+    text-shadow: 0 -1px 0 rgba(0, 0 ,0, 0.3);
+    line-height:19px;
+}   
+
+.newsletterPopup.tp4 button:before { /* left arrow */
+    content: '';
+    position: absolute;
+    border-width: 8px 8px 8px 0;
+    border-style: solid solid solid none;
+    top: 12px;
+    left: -7px;
+}
+                           
+.newsletterPopup.tp4 form table, .newsletterPopup form input {
+  width:100%;
+}
+
+.newsletterPopup.tp4 form button {
+  width:auto;
+}
+
+.newsletterPopup.tp4 form button:hover{ 
+cursor: pointer;
+opacity:1;
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+filter: alpha(opacity=100);
+-moz-opacity:1;
+-khtml-opacity: 1;
+opacity: 1;   
+text-shadow: 0 -1px 0 rgba(0, 0 ,0, 0.9);
+}

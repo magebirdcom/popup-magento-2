@@ -1,0 +1,123 @@
+.popupButton{
+  border:none;
+  outline: none;
+  cursor: pointer;
+  /*font-weight: bold;*/
+  font-size:16px;
+  padding: 7px 10px;    
+	padding: 9px 34px 11px;
+	font-size: 18px;
+	line-height: 1;
+  /*
+  text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 -1px 1px rgba(175, 49, 95, .7);   
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+  */  
+  background-image:none;      
+  text-decoration:none;
+  display:inline-block;   
+}                           
+
+.popupButton:active
+{
+	transform: translate(0px,1px);
+  -webkit-transform: translate(0px,1px);
+}
+
+.popupButton:hover{
+  opacity:0.9;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=90);
+  -moz-opacity:0.9;
+  -khtml-opacity: 0.9;
+  opacity: 0.9;   
+}
+
+.popupButton.size1{
+    padding: 4px 9px; 
+    font-size: 10px;                 
+}
+
+.popupButton.size2{
+    padding: 4px 13px; 
+    font-size: 14px;                 
+}
+
+.popupButton.size3{
+    padding: 5px 16px; 
+    font-size: 15px;                 
+}
+
+.popupButton.size4{
+    padding: 7px 24px;
+    font-size: 18px;                 
+}
+.popupButton.size5{
+    padding: 9px 30px;
+    font-size: 20px;                 
+}
+.popupButton.size6{
+    padding: 12px 34px;
+    font-size: 23px;                 
+}
+.popupButton.size7{
+    padding: 15px 38px;
+    font-size: 26px;                 
+}
+.popupButton.size8{
+    padding: 18px 42px;
+    font-size: 32px;                 
+}
+.popupButton.size9{
+    padding: 22px 46px;
+    font-size: 36px;                 
+}
+.popupButton.size10{
+    padding: 26px 56px;
+    font-size: 36px;                 
+}
+/*
+.size1 .popupButton{
+    padding: 4px 9px; 
+    font-size: 10px;                 
+}
+
+.size2 .popupButton{
+    padding: 4px 13px; 
+    font-size: 14px;                 
+}
+
+.size3 .popupButton{
+    padding: 5px 16px; 
+    font-size: 15px;                 
+}
+
+.size4 .popupButton{
+    padding: 7px 24px;
+    font-size: 18px;                 
+}
+.size5 .popupButton{
+    padding: 9px 30px;
+    font-size: 20px;                 
+}
+.size6 .popupButton{
+    padding: 12px 34px;
+    font-size: 23px;                 
+}
+.size7 .popupButton{
+    padding: 15px 38px;
+    font-size: 26px;                 
+}
+.size8 .popupButton{
+    padding: 18px 42px;
+    font-size: 32px;                 
+}
+.size9 .popupButton{
+    padding: 22px 46px;
+    font-size: 36px;                 
+}
+.size10 .popupButton{
+    padding: 26px 56px;
+    font-size: 36px;                 
+}
+*/

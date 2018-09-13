@@ -1,0 +1,314 @@
+<?php
+$color = "#ea7d00";
+?>
+<style>
+.button,button{
+  background:none;
+  font-family: "Helvetica Neue", "Helvetica", Arial, Verdana, sans-serif;
+  border:none;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-size:16px; 
+	padding: 9px 28px;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 1;
+  text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 -1px 1px rgba(175, 49, 95, .7);   
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2); 
+  margin-right:10px;        
+}
+
+.button:hover,button:hover{
+  color: white;  
+}
+
+ul#buttons li{
+  display:block;
+  margin:37px 0;             
+}
+button.tinySize{
+    padding: 5px 11px; 
+    font-size: 12px;                 
+}
+
+button.smallSize{
+    padding: 6px 13px; 
+    font-size: 13px;                 
+}
+
+button.middleSize{
+    padding: 7px 16px; 
+    font-size: 15px;                 
+}
+
+button.bigSize{
+    padding: 9px 34px;
+    font-size: 22px;                 
+}
+
+button:active
+{
+	transform: translate(0px,1px);
+  -webkit-transform: translate(0px,1px);
+}
+.button:hover,button:hover{
+	background:none;
+  opacity:0.9;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=90);
+  -moz-opacity:0.9;
+  -khtml-opacity: 0.9;
+  opacity: 0.9; 
+}  
+
+<?php
+$color2 = $this->brightness($color,-50);; 
+?>
+button._1{
+  border-radius: 8px;
+	background-color: <?php echo $color;?>;
+	border-bottom: 5px solid <?php echo $color2;?>;
+	
+}  
+button:active._1
+{
+	transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+} 
+
+button._2{
+   background: <?php echo $color; ?>;
+   border: 2px dashed #fff;
+   border-radius: 10px;
+   box-shadow: 0 0 0 4px <?php echo $color; ?>, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+} 
+
+button._3{
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+  background-color: <?php echo $color?>;
+} 
+
+button._4{
+  border: 0 none;
+  border-radius: 3px 3px 3px 3px;
+  transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+  background: none repeat scroll 0 0 <?php echo $color?>;
+} 
+
+<?php
+$color1 = $this->brightness($color,10);
+$color2 = $this->brightness($color1,-40);
+$color3 = $this->brightness($color1,-60);  
+?>
+button._5{
+  background-color: <?php echo $color?>; 
+	background-image: -webkit-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+	background-image: -moz-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+	background-image: -ms-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+	background-image: -o-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+	background-image: linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+  border: 1px solid <?php echo $color3?>;
+  border-radius: 7px;
+  box-shadow: inset 0 0 1px 0 rgba(white, 0.5);
+}  
+
+<?php
+$color2 = $this->brightness($color,-60);
+$color3 = $this->brightness($color,10);  
+?>
+button._6{
+  background-color: <?php echo $color?>; 
+	background-image: -webkit-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+	background-image: -moz-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+	background-image: -ms-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+	background-image: -o-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+	background-image: linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+  border-radius: 8px;
+  box-shadow: inset 0 0 1px 0 rgba(white, 0.5);
+} 
+
+<?php
+$color2 = $this->brightness($color,-30);
+$color3 = $this->brightness($color,-50);
+$color4 = $this->brightness($color,-75);  
+?>
+button._7{
+    border: 1px solid;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.19); 
+    border-color: <?php echo $color2;?> <?php echo $color2;?> <?php echo $color4?> <?php echo $color3?>;
+    background-color: <?php echo $color?>; 
+  	background-image: -webkit-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+  	background-image: -moz-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+  	background-image: -ms-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+  	background-image: -o-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+  	background-image: linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+}   
+
+<?php
+$color1 = $this->brightness($color,24);
+$color2 = $this->brightness($color1,-84);
+$color3 = $this->brightness($color,-75);
+$color4 = $this->brightness($color,-65);
+?>
+button._8{
+			-webkit-transition: background-color .15s ease-in-out;
+			-moz-transition: background-color .15s ease-in-out;
+			-o-transition: background-color .15s ease-in-out;			 
+			-moz-border-radius: 1000px;
+			-webkit-border-radius: 1000px;
+			border-radius: 1000px;
+      background-color: <?php echo $color?>; 
+			background-image: -webkit-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+			background-image: -moz-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+			background-image: -ms-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+			background-image: -o-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+			background-image: linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+			-webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 100, 0.6), 0 1px 3px #333333;
+			-moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.6), 0 1px 3px #333333;
+			-ms-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.6), 0 1px 3px #333333;
+			-o-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.6), 0 1px 3px #333333;
+			box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.4), 0 1px 3px #333333;
+			border: 1px solid <?php echo $color3?>; 
+}  
+
+<?php
+$color1 = $this->brightness($color,24);
+$color2 = $this->brightness($color1,-84);
+$color3 = $this->brightness($color1,-75);
+$color4 = $this->brightness($color1,-65);
+?>
+button._9{
+      background-color: <?php echo $color1?>; 
+			background-image: -webkit-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+			background-image: -moz-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+			background-image: -ms-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+			background-image: -o-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+			background-image: linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+			-webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 100, 0.6), 0 1px 3px #333333;
+			-moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.6), 0 1px 3px #333333;
+			-ms-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.6), 0 1px 3px #333333;
+			-o-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.6), 0 1px 3px #333333;
+			box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.4), 0 1px 3px #333333;
+			border: 1px solid <?php echo $color3?>; 
+} 
+
+<?php
+$color1 = $this->brightness($color,14);
+$color2 = $this->brightness($color1,-84);
+$color3 = $this->brightness($color1,25); 
+?>
+button._10{
+    border: none;
+    background-color: <?php echo $color1?>; 
+  	background-image: -webkit-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+  	background-image: -moz-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+  	background-image: -ms-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+  	background-image: -o-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+  	background-image: linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+} 
+
+<?php
+$color1 = $this->brightness($color,14);
+$color2 = $this->brightness($color,-52);
+$color3 = $this->brightness($color,25);  
+?>
+button._11{
+    border: none;        
+    background-color: <?php echo $color1?>; 
+  	background-image: -webkit-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+  	background-image: -moz-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+  	background-image: -ms-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+  	background-image: -o-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+  	background-image: linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+		-moz-border-radius: 6px;
+		-webkit-border-radius: 6px;
+		border-radius: 6px;   
+} 
+
+<?php
+$color1 = $this->brightness($color,14);
+$color2 = $this->brightness($color,-64);
+$color3 = $this->brightness($color,25); 
+?>
+button._12{
+  background-color: <?php echo $color1?>; 
+	background-image: -webkit-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+	background-image: -moz-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+	background-image: -ms-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+	background-image: -o-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+	background-image: linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+	-moz-border-radius: 1000px;
+	-webkit-border-radius: 1000px;
+	border-radius: 1000px;   
+} 
+
+button._13{
+  background-color: <?php echo $color?>;
+  border: none;
+} 
+
+button._14{
+  background-color: <?php echo $color?>;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;   
+} 
+<?php
+$color1 = $this->brightness($color,14);
+$color2 = $this->brightness($color,-14); 
+?>
+button._15{
+    background: rgb(252,239,184);
+    background: -moz-linear-gradient(top,  <?php echo $color1?> 0%, <?php echo $color1?> 50%, <?php echo $color2?> 50%, <?php echo $color2?> 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,<?php echo $color1?>), color-stop(50%,<?php echo $color1?>), color-stop(50%,<?php echo $color2?>), color-stop(100%,<?php echo $color2?>));
+    background: -webkit-linear-gradient(top,  <?php echo $color1?> 0%,<?php echo $color1?> 50%,<?php echo $color2?> 50%,<?php echo $color2?> 100%);
+    background: -o-linear-gradient(top,  <?php echo $color1?> 0%,<?php echo $color1?> 50%,<?php echo $color2?> 50%,<?php echo $color2?> 100%);
+    background: -ms-linear-gradient(top,  <?php echo $color1?> 0%,<?php echo $color1?> 50%,<?php echo $color2?> 50%,<?php echo $color2?> 100%);
+    background: linear-gradient(top,  <?php echo $color1?> 0%,<?php echo $color1?> 50%,<?php echo $color2?> 50%,<?php echo $color2?> 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='<?php echo $color1?>', endColorstr='<?php echo $color2?>',GradientType=0 );
+} 
+button._16{
+  border: 1px solid <?php echo $color ?>;
+  background: transparent;          
+  font-weight:normal;
+  text-shadow:none;
+  color:<?php echo $color?>;
+}
+
+button._17{
+  border: 2px solid <?php echo $color ?>;
+  background: transparent;        
+  color:<?php echo $color?>;
+  font-weight:bold;
+  text-shadow:none;
+}
+
+
+</style>
+<p><?php echo __("Click to the button to select size and shape. You can change color later.")?></p>
+<ul id="buttons">
+<?php for($n=1; $n<18; $n++):?>
+<li>
+<button onclick='window.submitValue(this,"<?php echo $n;?>"); Windows.close("widget-chooser", event)' data-template="<?php echo $n;?>" data-size="normall" id="_<?php echo $n;?>" class="_<?php echo $n;?>">Your text</button>
+</li>
+<?php endfor;?>
+</ul>
+<script>
+window.submitValue = function ($this,elId){
+    jQuery("input[name='parameters[template]']").val("widget/buttons/"+elId+".phtml");    
+    jQuery("input[name='parameters[template]']").parent().parent().parent().prev().find('.widget-option-label').text('Template '+elId)
+    jQuery($this).parents('.modal-inner-wrap').find(".action-close").click();
+};
+</script>

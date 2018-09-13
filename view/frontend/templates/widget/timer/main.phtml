@@ -1,0 +1,101 @@
+<?php $rand = substr( md5(rand()), 0, 7);?>
+
+<div id="<?php echo $this->getWidgetId()?>" style="display:none;"></div><!--Leave that!-->
+<script>
+var popupId = jQuery("#<?php echo $this->getWidgetId()?>").closest(".mbdialog").attr('data-popupid');
+var popupCookieId = mb_popups[popupId].cookieId;
+if (typeof popupTimer === "undefined"){     
+  var url = mb_popup.correctHttps("<?php echo $block->getViewFileUrl('Magebird_Popup::js/timer.js') ?>");
+  jQuery.getScript(url);   
+}
+
+
+var timerScrListener<?php echo $rand;?> = setInterval(function(){
+  //we can not use popupId variable for case if there are 2 popups, this is why this "ugly" code is needed
+  if(typeof popupTimer !== "undefined" && jQuery('.mbdialog.popupid'+jQuery("#<?php echo $this->getWidgetId()?>").closest(".mbdialog").attr('data-popupid')).is(":visible")
+  && typeof popupTimer[jQuery("#<?php echo $this->getWidgetId()?>").closest(".mbdialog").attr('data-popupid')] === "undefined"){  
+    clearInterval(timerScrListener<?php echo $rand;?>)   
+    popupId = jQuery("#<?php echo $this->getWidgetId()?>").closest(".mbdialog").attr('data-popupid');      
+  <?php if($this->getPopupInheritId()):?>
+    popupCookieId = '<?php echo $this->getCookieInheritId();?>'; 
+  <?php else:?>    
+    popupCookieId = mb_popups[popupId].cookieId;
+  <?php endif;?>  
+    var timerType = '<?php echo $this->getTimerType()?>';   
+    popupTimer[popupCookieId] = {};   
+    popupTimer[popupId] = true;                                                                                    
+    if(timerType=='static'){
+      var strtotimeToDate = '<?php echo $this->getTimer()?>'
+      var current = mb_popup.serverLocalTime;
+      popupTimer[popupCookieId].timer = strtotimeToDate - current;
+    }else{
+      popupTimer[popupCookieId].timer = '<?php echo $this->getTimer()?>'
+    }    
+    popupTimer[popupCookieId].timeoutMsg = decodeURIComponent(('<?php echo urlencode($this->getData('success_msg')) ?>'+'').replace(/\+/g, '%20'));
+    //for case if there are 2 timers inside the same page       
+    startTimer(<?php echo $this->getOnTimeout()?>,popupId,timerType,popupCookieId)
+    console.log(<?php echo $this->getOnTimeout()?>)
+    console.log(popupId)
+    console.log(timerType)
+    console.log(popupCookieId)   
+  }
+},10) 
+</script>
+<style>
+.countdown{
+  display:inline-block;    
+  font-size:<?php echo $this->getFontSize() ?>px !important;
+  line-height:<?php echo $this->getFontSize() ?>px !important;
+}
+.countdown .number{
+  background:#343434;
+  background-image:-moz-linear-gradient(bottom, #343434 50%, #404040 50%);
+  background-image:-webkit-linear-gradient(bottom, #343434 50%, #404040 50%);
+  background-image:-o-linear-gradient(bottom, #343434 50%, #404040 50%);
+  background-image:-ms-linear-gradient(bottom, #343434 50%, #404040 50%);
+  background-image:-moz-linear-gradient(bottom, #343434 50%, #404040 50%); 
+  color:white;
+  padding:7px;   
+  min-width:26px; 
+  border-radius:3px;    
+  display:block;
+  line-height:<?php echo $this->getFontSize() ?>px;  
+}
+
+.countdown div{
+  float:left;
+  text-align:center;
+  margin-right:10px;
+}
+
+.countdown.white .number{
+  background:#e2e2e2;
+  background-image:-moz-linear-gradient(bottom, #e2e2e2 50%, #ececec 50%);
+  background-image:-webkit-linear-gradient(bottom, #e2e2e2 50%, #ececec 50%);
+  background-image:-o-linear-gradient(bottom, #e2e2e2 50%, #ececec 50%);
+  background-image:-ms-linear-gradient(bottom, #e2e2e2 50%, #ececec 50%);
+  background-image:-moz-linear-gradient(bottom, #e2e2e2 50%, #ececec 50%);  
+  color:#222222;
+}
+
+.countdown .label{
+  font-size:<?php echo $this->getLabelFontSize() ?>px;
+  vertical-align:top;
+  text-transform: uppercase;
+}
+
+.cfix:before,
+.cfix:after {
+    content: " "; /* 1 */
+}
+
+.cfix:after {
+    clear: both;
+}
+
+.cfix {
+    *zoom: 1;
+}
+
+</style>
+<?php echo $this->getLayout()->createBlock('Magebird\Popup\Block\Widget\Timer')->setTemplate('Magebird_Popup::widget/timer/'.intval($this->getStyle()).'.phtml')->setTimer($this->getTimer())->setWidgetId($this->getWidgetId())->toHtml(); ?>

@@ -1,0 +1,51 @@
+.cssLoadedChecker2.moctod-dribegam{
+  display:none; /*DONT CHANGE THIS LINE! jQuery use this to check if css is loaded*/              
+}
+
+.newsletterPopup.tp7 form {
+    height: 38px;       
+}
+
+.newsletterPopup.tp7 form input {
+    height: 18px;
+    padding: 10px 0 10px 5px;
+    font-size: 15px;
+    font-weight:bold;
+    border:none;
+    background: #fff;
+    box-shadow:0 1px 3px #cad5d8;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;     
+}
+
+
+.newsletterPopup.tp7 form button {
+    height:38px;
+    font-size:18px;
+    font-weight:bold;
+    height: 38px;
+    text-align:center;
+    padding: 0 4px;    
+    cursor: pointer;
+    border:none;  
+    box-shadow:0 1px 3px #cad5d8;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;   
+    margin-left:10px;      
+}  
+
+.newsletterPopup.tp7 form table, .newsletterPopup form input {
+  width:100%;
+}
+
+.newsletterPopup.tp7 form button {
+  width:auto;
+}

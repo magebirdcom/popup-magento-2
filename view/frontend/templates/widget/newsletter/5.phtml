@@ -1,0 +1,30 @@
+<?php echo $this->getLayout()->createBlock('Magebird\Popup\Block\Widget\Newsletter')->setTemplate('Magebird_Popup::widget/newsletter/global.phtml')->toHtml(); ?>
+<?php echo $this->getScript(5)?>
+<?php $randomId = $this->getWidgetId(); ?>
+<style>
+#<?php echo $randomId?>.newsletterPopup form {              
+    width: <?php echo $this->getData('width')?><?php echo $this->getData('width_unit')==2 ? "%" : "px";?>;
+    <?php if($this->getData('width_unit')==2):?> 
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing:        border-box;  
+    <?php endif;?>    
+}
+
+#<?php echo $randomId?>.newsletterPopup button {
+    background-color: <?php echo $this->getButtonColor() ?>; 
+    color:<?php echo $this->getButtonTextColor()?>;   
+}  
+</style>
+<div class="newsletterPopup tp5" id="<?php echo $randomId?>"> 
+  <div class="error" style="display:none;"></div>
+  <form method="post" id="popup-newsletter-form" data-widgetId="<?php echo $this->getWidgetId()?>" onsubmit="return false">     
+          <input type="text" placeholder="<?php echo __('Enter Your Email')?>" name="email" id="popupNewsletter" title="<?php echo __('Email address')?>" />
+          <button class="async_false" type="submit" title="<?php echo __('Subscribe')?>">
+          <?php echo $this->getData('button_text') ? $this->getData('button_text') : __('Subscribe') ?>
+          </button>
+          <?php if($this->getShowCheckbox()):?>
+          <p class="checkboxAgree"><input type="checkbox" /><?php echo $this->getCheckboxText()?></p>
+          <?php endif;?>          
+  </form>
+</div> 

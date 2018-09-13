@@ -1,0 +1,50 @@
+.cssLoadedChecker2.moctod-dribegam{
+  display:none; /*DONT CHANGE THIS LINE! jQuery use this to check if css is loaded*/              
+}
+
+.newsletterPopup.tp5 form {
+    height: 30px;    
+}
+
+.newsletterPopup.tp5 form input {
+    width: 100%;
+    height: 100%;
+    padding-left: 5px;
+    font-size: 14px;
+    font-weight:bold;
+    border: 0;
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0,0,0,0.18) inset;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;          
+}
+
+.newsletterPopup.tp5 form input:focus {
+    outline: 0;
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0,0,0,0.4) inset;
+}
+
+.newsletterPopup.tp5 form button {
+    overflow: visible;
+    position: absolute;
+    top:4px;
+    right:0px;
+    padding: 0 4px;
+    cursor: pointer;
+    height: 22px;
+    font-size: 13px;
+    font-weight:bold;   
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;   
+    border:none;  
+    text-shadow: 0 -1px 0 rgba(0, 0 ,0, 0.22);
+}  

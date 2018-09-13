@@ -1,0 +1,35 @@
+.cssLoadedChecker2.moctod-dribegam{
+  display:none; /*DONT CHANGE THIS LINE! jQuery use this to check if css is loaded*/              
+}
+
+.newsletterPopup.tp12 form {
+    /*height: 38px;*/ 
+    box-sizing:border-box;  
+    text-align:left !important;  
+}
+
+.newsletterPopup.tp12 form input {
+    height: 32px;
+    padding: 5px 10px;
+    border: 1px solid #e0dede;
+    background: #fff;   
+    display:block;  
+    margin-bottom:10px;
+    box-sizing:border-box;
+    text-align:left;
+}
+
+
+.newsletterPopup.tp12 form button {
+  border: none;
+  height: 21px;
+  padding: 5px 12px;
+  font-size: 14px;
+  font-weight: bold;
+}  
+
+.dialogBody{
+  position:relative !important;
+  z-index:-3 !important;
+  overflow:visible !important;           
+}

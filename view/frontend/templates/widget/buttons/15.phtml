@@ -1,0 +1,26 @@
+<?php 
+echo $this->getLayout()->createBlock('Magebird\Popup\Block\Widget\Buttons')->setTemplate('Magebird_Popup::widget/buttons/global.phtml')->toHtml();
+$color = $this->getColor();
+$color1 = $this->brightness($color,14);
+$color2 = $this->brightness($color,1); 
+?>
+
+<style>
+#<?php echo $this->getWidgetId()?>.popupButton{
+    background: rgb(252,239,184);
+    background: -moz-linear-gradient(top,  <?php echo $color1?> 0%, <?php echo $color1?> 50%, <?php echo $color2?> 50%, <?php echo $color2?> 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,<?php echo $color1?>), color-stop(50%,<?php echo $color1?>), color-stop(50%,<?php echo $color2?>), color-stop(100%,<?php echo $color2?>));
+    background: -webkit-linear-gradient(top,  <?php echo $color1?> 0%,<?php echo $color1?> 50%,<?php echo $color2?> 50%,<?php echo $color2?> 100%);
+    background: -o-linear-gradient(top,  <?php echo $color1?> 0%,<?php echo $color1?> 50%,<?php echo $color2?> 50%,<?php echo $color2?> 100%);
+    background: -ms-linear-gradient(top,  <?php echo $color1?> 0%,<?php echo $color1?> 50%,<?php echo $color2?> 50%,<?php echo $color2?> 100%);
+    background: linear-gradient(top,  <?php echo $color1?> 0%,<?php echo $color1?> 50%,<?php echo $color2?> 50%,<?php echo $color2?> 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='<?php echo $color1?>', endColorstr='<?php echo $color2?>',GradientType=0 );
+    color:<?php echo $this->getButtonTextColor()?>;
+}  
+</style>
+<?php if($this->getData('on_click')==2 || $this->getData('on_click')==3):?>
+  <a href="<?php echo $this->getData('button_href')?>" <?php if($this->getData('link_target')==2) echo 'target="_blank"'?> id="<?php echo $this->getWidgetId()?>" class="popupButton size<?php echo $this->buttonSize(); if($this->getData('on_click')==3) echo ' dialogCloseCustom'?>"><?php echo __($this->getData('button_text'))?></a>
+<?php else:?>
+  <a href="#" id="<?php echo $this->getData('widget_id')?>" class="popupButton size<?php echo $this->buttonSize()?>"><?php echo __($this->getData('button_text'))?></a>   
+  <?php echo $this->getJsHtml()?>
+<?php endif;?>

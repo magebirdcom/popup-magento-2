@@ -1,0 +1,12 @@
+<!--@subject Your coupon code @-->
+
+{{template config_path="design/email/header_template"}}
+
+<p class="greeting">{{trans "Dear customer"}},</p>
+<br>
+
+<p>
+    {{trans "your coupon code is: %coupon_code. To get discount copy & paste the code to offer code box in your shopping cart." coupon_code=$coupon_code}}
+</p>
+
+{{template config_path="design/email/footer_template"}}

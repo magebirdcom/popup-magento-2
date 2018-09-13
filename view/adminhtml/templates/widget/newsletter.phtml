@@ -1,0 +1,29 @@
+<style>
+
+#newsletterInput li{
+  padding:30px;
+  background-color:#f4f4f4;
+  border:1px solid silver;
+  margin-bottom:10px;
+  cursor:pointer; 
+  list-style:none;
+}
+
+#newsletterInput li:hover{
+  box-shadow:1px 1px 2px 1px rgba(0,0,0,.1);
+}
+
+</style>
+<p><?php echo __("Click to the input to select style. You can change width and color later.")?></p>
+<ul id="newsletterInput">
+<?php for($n=1; $n<14; $n++):?>                                                                                     
+  <li onclick='window.submitValue(this,"<?php echo $n;?>");'><img src="<?php echo $this->getViewFileUrl('Magebird_Popup::images/'.$n.'.png') ?>" /></li>
+<?php endfor;?>
+</ul>
+<script>
+window.submitValue = function ($this,elId){    
+    jQuery("input[name='parameters[template]']").val("widget/newsletter/"+elId+".phtml");
+    jQuery("input[name='parameters[template]']").parent().parent().parent().prev().find('.widget-option-label').text('Template '+elId)
+    jQuery($this).parents('.modal-inner-wrap').find(".action-close").click();
+};
+</script>

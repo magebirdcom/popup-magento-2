@@ -1,0 +1,73 @@
+<?php
+$tree = $this->getCategoryTree();
+
+$level=0;
+function categorywalk($tree ,$catAttributes,$level)  {
+    $level++;
+    if($level > 1 ){
+      $isHidden = 'style="display:none"';
+    }else{
+      $isHidden = '';      
+    }    
+    echo "<ul ".$isHidden.">";
+    foreach ($catAttributes as $catAttribute ) {  
+          
+        echo '<li>';
+        if (isset ($tree [$catAttribute['id'] ])){
+          echo '<span class="expand">+</span> ';          
+        }else{
+          echo '<span class="expand">&nbsp;</span> ';
+        }
+                    
+        echo '<input type="checkbox" name="catId['.$catAttribute['id'].']" value="'.$catAttribute['id'].'"><span>'.$catAttribute['name'].'</span>';
+        if (isset ($tree [$catAttribute['id'] ])){
+          categorywalk ($tree , $tree[$catAttribute['id']], $level) ;
+        }            
+        echo "</li>";
+    }
+    echo "</ul>";
+}?>
+<p>Tip: Hold ctrl key while checking checkbox if you want to select all subcategories. Click + (plus) sign to expand category tree.</p>
+<div class="categoryTree">
+  <form>
+  <?php categorywalk($tree , $tree[1], $level);?>
+  </form>
+</div>
+<script>
+jQuery(".expand").click(function(){
+  if(jQuery(this).parent().find('ul').is(":visible")){
+    jQuery(this).parent().children('ul').hide();
+    jQuery(this).text('+');
+  }else{
+    jQuery(this).parent().children('ul').show();
+    jQuery(this).text('-');
+  }
+});
+
+var ctrlKeyDown = false;
+jQuery('body').bind('keydown',function(e){
+  if (e.ctrlKey) {
+    ctrlKeyDown = true;
+  }
+}).bind('keyup',function(){
+    ctrlKeyDown = false;
+});
+
+jQuery("input").click(function(){
+  if(!ctrlKeyDown) return;
+  if(jQuery(this).is(':checked')){
+    jQuery(this).parent().find('input').prop('checked', true);
+  }else{
+    jQuery(this).parent().find('input').prop('checked', false);
+  }  
+});
+
+
+
+catIds = jQuery("input[name='category_ids']").val().split(',');
+catIds.forEach(function(id) {
+    jQuery("input[name='catId["+id+"]']").prop('checked',true)
+});
+</script>
+</body>
+</html>

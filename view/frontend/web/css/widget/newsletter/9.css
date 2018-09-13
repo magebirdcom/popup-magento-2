@@ -1,0 +1,59 @@
+.cssLoadedChecker2.moctod-dribegam{
+  display:none; /*DONT CHANGE THIS LINE! jQuery use this to check if css is loaded*/              
+}
+
+.newsletterPopup.tp9 form {
+    /*height: 38px;*/       
+}
+
+.newsletterPopup.tp9 form input {
+    font-style:italic;
+    font-size: 18px;
+    text-align:center;
+    padding-left:10px;
+    margin-bottom:10px;
+    height:47px;
+    background-color:#ffffff;
+    box-shadow:0 0 4px silver;
+    border:none;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;     
+    box-sizing:border-box;
+}
+
+
+.newsletterPopup.tp9 form button {
+  box-sizing:border-box;
+  border:none;
+  outline: none;
+  cursor: pointer;
+  font-size:16px; 
+	padding: 25px 45px;	
+	font-size: 28px;  
+	line-height: 1;
+  text-align:center;
+  /* height: 38px;*/
+  background-image:none;      
+  text-decoration:none;
+  display:inline-block; 
+  /*border: 1px solid;*/
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;   
+  color:#FFFFFF;
+  position:relative;  
+  width: 100%;   
+}  
+
+.dialogBody{
+  position:relative !important;
+  z-index:-3 !important;
+  overflow:visible !important;           
+}

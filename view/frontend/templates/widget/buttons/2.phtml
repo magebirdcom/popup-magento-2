@@ -1,0 +1,19 @@
+<?php 
+echo $this->getLayout()->createBlock('Magebird\Popup\Block\Widget\Buttons')->setTemplate('Magebird_Popup::widget/buttons/global.phtml')->toHtml();
+$color = $this->getColor();
+?>
+<style>
+#<?php echo $this->getWidgetId()?>.popupButton{
+   background: <?php echo $color; ?>;
+   border: 2px dashed #fff;
+   border-radius: 10px;
+   box-shadow: 0 0 0 4px <?php echo $color; ?>, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+   color:<?php echo $this->getButtonTextColor()?>
+}  
+</style>
+<?php if($this->getData('on_click')==2 || $this->getData('on_click')==3):?>
+  <a href="<?php echo $this->getData('button_href')?>" <?php if($this->getData('link_target')==2) echo 'target="_blank"'?> id="<?php echo $this->getWidgetId()?>" class="popupButton size<?php echo $this->buttonSize(); if($this->getData('on_click')==3) echo ' dialogCloseCustom'?>"><?php echo __($this->getData('button_text'))?></a>
+<?php else:?>
+  <a href="#" id="<?php echo $this->getData('widget_id')?>" class="popupButton size<?php echo $this->buttonSize()?>"><?php echo __($this->getData('button_text'))?></a>   
+  <?php echo $this->getJsHtml()?>
+<?php endif;?>

@@ -1,0 +1,35 @@
+{
+  "name": "magebird/popup-magento2",
+  "description": "Popup Extension Magento 2",
+  "type": "magento2-module",
+  "extra": {
+      "map": [
+        [
+          "lib/internal/*",
+          "lib/internal"
+        ],
+        [
+          "pub/media/*",
+          "pub/media"
+      ],
+      [
+        "magepub/*",
+        "pub"
+    ],
+
+    
+    [
+        "wysiwyg/*",
+        "pub/media/wysiwyg"
+    ]
+  ]
+    },  
+  "version": "1.4.7",
+  "license": "SEE LICENSE IN LICENSE.md"
+  "autoload": {
+      "files": [ "registration.php" ],
+      "psr-4": {
+          "Magebird\\Popup\\": ""
+      }
+  }
+}

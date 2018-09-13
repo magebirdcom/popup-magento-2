@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="jquery/fileUploader/css/jquery.fileupload-ui.css"/>
+        <css src="Magebird_Popup::css/styles.css"/>
+        <link src="Magebird_Popup::js/script.js"/>
+    </head>
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magebird\Popup\Block\Adminhtml\Popup\Edit" name="popup_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Magebird\Popup\Block\Adminhtml\Popup\Edit\Tabs" name="popup_edit_tabs">
+                <block class="Magebird\Popup\Block\Adminhtml\Popup\Edit\Tab\Main" name="popup_edit_tab_main"/>
+                <block class="Magebird\Popup\Block\Adminhtml\Popup\Edit\Tab\Settings" name="popup_edit_tab_settings"/>
+                <block class="Magebird\Popup\Block\Adminhtml\Popup\Edit\Tab\Position" name="popup_edit_tab_position"/>
+                <block class="Magebird\Popup\Block\Adminhtml\Popup\Edit\Tab\Appearance" name="popup_edit_tab_appearance"/>
+                <block class="Magebird\Popup\Block\Adminhtml\Popup\Edit\Tab\Conditions" name="popup_edit_tab_conditions"/>
+                <block class="Magebird\Popup\Block\Adminhtml\Popup\Edit\Tab\Cartconditions" name="popup_edit_tab_cartconditions"/>
+                <!--
+                <block class="Magebird\Popup\Block\Adminhtml\Popup\Edit\Tab\Content" name="popup_edit_tab_content"/>
+                <block class="Magebird\Popup\Block\Adminhtml\Popup\Edit\Tab\Image" name="popup_edit_tab_image"/>
+                -->
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">popup_edit_tab_main</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">settings_section</argument>
+                    <argument name="block" xsi:type="string">popup_edit_tab_settings</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">position_section</argument>
+                    <argument name="block" xsi:type="string">popup_edit_tab_position</argument>
+                </action>   
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">appearance_section</argument>
+                    <argument name="block" xsi:type="string">popup_edit_tab_appearance</argument>
+                </action>   
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">conditions_section</argument>
+                    <argument name="block" xsi:type="string">popup_edit_tab_conditions</argument>
+                </action> 
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">cartconditions_section</argument>
+                    <argument name="block" xsi:type="string">popup_edit_tab_cartconditions</argument>
+                </action>                                                                
+                <!--
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">image_section</argument>
+                    <argument name="block" xsi:type="string">popup_edit_tab_image</argument>
+                </action>
+                -->
+            </block>
+        </referenceContainer>
+    </body>
+</page>

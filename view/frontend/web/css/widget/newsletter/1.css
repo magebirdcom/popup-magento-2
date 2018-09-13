@@ -1,0 +1,43 @@
+.cssLoadedChecker2.moctod-dribegam{
+  display:none; /*DONT CHANGE THIS LINE! jQuery use this to check if css is loaded*/              
+}
+
+.newsletterPopup.tp1 form input{
+  display:block;
+  border:0;
+  outline:0;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -o-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  border-radius: 2px;
+  box-shadow:1px 1px 2px 1px rgba(0,0,0,0.1);
+  color:#000;
+  padding:8px 10px;
+  font-size:17px;
+  line-height:20px;
+  margin-bottom:10px;
+  height:auto;
+  text-align:center;
+}
+
+
+.newsletterPopup.tp1 button {
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -o-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    border-radius: 2px;
+    box-shadow:1px 1px 2px 1px rgba(0,0,0,0.1);    
+    font-size:18px;
+    font-weight:bold;
+    width: 100%;
+    height: 44px;  
+    text-align:center;
+    padding: 0 4px;    
+    cursor: pointer;
+    border:none;  
+    display:block;
+}  

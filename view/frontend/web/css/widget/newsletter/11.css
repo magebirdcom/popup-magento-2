@@ -1,0 +1,83 @@
+.cssLoadedChecker2.moctod-dribegam{
+  display:none; /*DONT CHANGE THIS LINE! jQuery use this to check if css is loaded*/              
+}
+
+.newsletterPopup.tp11 form {
+    /*height: 38px;*/       
+}
+
+.newsletterPopup.tp11 form input {
+    font-size: 22px;
+    text-align:center;
+    padding-left:10px;
+    margin-bottom:10px;
+    height:45px;
+    background-color:#ffffff;
+    box-shadow:0 2px 5px silver inset;
+    border:none;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -o-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    border-radius: 2px;     
+    box-sizing:border-box;
+}
+
+
+.newsletterPopup.tp11 form button {
+  box-sizing:border-box;
+  border:none;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size:16px; 
+	padding: 20px 45px;	
+	font-size: 28px;
+	line-height: 1;
+  text-align:center;
+  text-shadow:0 -1px 0 rgba(0, 0, 0, 0.31);
+  /* height: 38px;*/
+  background-image:none;      
+  text-decoration:none;
+  display:inline-block; 
+  /*border: 1px solid;*/
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;   
+  color:#FFFFFF;
+  position:relative;  
+  width: 100%;   
+}  
+
+button::before,button::after{
+    position:absolute;
+    content:"";
+    z-index:-2;                            
+}
+
+
+.shadding::before{
+    border-radius: 140px / 10px;
+    bottom: 0;
+    /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);*/
+    box-shadow:0 3px 3px rgba(0, 0, 0, 0.67)
+    left: 30px;
+    right: 30px;
+    top: 50%;              
+}
+
+.dialogBody{
+  position:relative !important;
+  z-index:-3 !important;
+  overflow:visible !important;           
+}
+
+@media (max-width: 500px) {
+.newsletterPopup.tp11 form input {
+    font-size: 18px;
+}
+}

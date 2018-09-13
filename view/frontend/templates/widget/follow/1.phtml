@@ -1,0 +1,63 @@
+<?php 
+$services = explode(",",$this->getData('services'));
+$template = $this->getData('button_style');
+/*
+if(Mage::app()->getStore()->isCurrentlySecure()){  
+  $action = Mage::getUrl('magebird_popup/coupon/new', array('_forced_secure' => true));         
+}else{
+  $action = Mage::getUrl('magebird_popup/coupon/new');
+} 
+*/
+$action = $this->getAjaxUrl();
+?>
+<div class="followPopup tp<?php echo $template?>" id="<?php echo $this->getWidgetId();?>">
+  <ul>
+  <?php if(in_array("gplus",$services)):?>
+  <li class="gplusRecommend">               
+    <g:plusone size="tall"<?php if($template==2):?> annotation="none"<?php endif;?> recommendations="false" href="<?php echo $this->getData('share_url')?>" callback="gplusCallback"></g:plusone>
+  </li>
+  <?php endif;?>
+  <?php if(in_array("twitter_follow",$services)):?>
+  <li class="twitterFollow">
+    <?php if($template!=2):?>
+    <img src="<?php echo $block->getViewFileUrl('Magebird_Popup::css/widget/follow/twitter.png') ?>" />
+    <?php endif;?>
+    <a href="https://twitter.com/<?php echo $this->getData('twitter_username')?>" class="twitter-follow-button" data-width="60px" data-show-count="false" data-size="small" data-show-screen-name="false"></a>  
+  </li>    
+  <?php endif;?>
+  <?php if(in_array("twitter",$services)):?>
+  <li class="twitterTweet">
+    <?php if($template!=2):?>
+    <img src="<?php echo $block->getViewFileUrl('Magebird_Popup::css/widget/follow/twitter.png') ?>" />
+    <?php endif;?>  
+    <a style="width:100px;" href="https://twitter.com/share" data-url="<?php echo $this->getData('share_url')?>" class="twitter-share-button" data-lang="en" <?php if($template!=2):?> data-count="vertical"<?php endif;?>></a>
+  </li> 
+  <?php endif;?>
+  <?php if(in_array("facebook",$services)):?>        
+  <div id="fb-root"></div> 
+  <li class="fbLike">
+    <div data-share="false" data-show-faces="false" data-layout="<?php if($template!=2):?>box_count<?php else:?>button<?php endif;?>" data-href="<?php echo $this->getData('share_url')?>" data-action="like" class="fb-like"></div>
+  </li>
+  <?php endif;?>
+  <?php if(in_array("pinterest_follow",$services)):?> 
+  <li class="pinFollow">
+    <?php if($template!=2):?>
+    <img src="follow<?php echo $block->getViewFileUrl('Magebird_Popup::css/widget/follow/pinterest.png') ?>" />
+    <?php endif;?>
+    <span id="pinButton"><a data-pin-do="buttonFollow" href="http://www.pinterest.com/<?php echo $this->getData('pinterest_username')?>/">Follow</a></span>                         
+  </li>
+  <?php endif;?>
+  </ul>    
+</div>
+<script src="<?php echo $block->getViewFileUrl('Magebird_Popup::js/follow.js') ?>"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+<script type="text/javascript">  
+var smWorkingText = '<?php echo $this->__('Working')?>...';
+var smCouponAction = '<?php echo $action ?>?rand='+Math.floor((Math.random() * 100000000) + 1);
+var smCouponCode = '<?php echo $this->getData('coupon_code') ?>'; 
+var smSuccessMsg = decodeURIComponent(('".$this->getData('success_msg')."'+'').replace(/\+/g, '%20')); 
+var smWorkingText = '<?php echo $this->__('Working')?>...';
+var smPopupId = jQuery("#<?php echo $this->getWidgetId()?>").closest(".mbdialog").attr('data-popupid');
+var smWidgetId = '<?php echo $this->getWidgetId()?>';
+</script>

@@ -1,0 +1,332 @@
+.mbdialog *, .mbdialog *:before, .mbdialog *:after{                                                                                                                                                                                                                                        /*dpqzsjhiunbhfcjseepudpn*/
+  box-sizing:content-box;         
+}
+
+.mbdialog th, .mbdialog td{
+  vertical-align:top;                      
+}
+
+.mbdialog img{
+  display:inline;         
+}
+
+.dialogBg{
+  background: rgba(255, 255, 255, 0.90);  
+  position:fixed;
+  overflow-x: auto;
+  overflow-y: scroll;
+  z-index:99999999;
+  left:0;
+  top:0;
+  bottom:0;
+  right:0; 
+  /*visibility:hidden;*/
+  display:none;
+  cursor:pointer;   
+}           
+
+.dialogBody{
+  overflow:hidden;   
+  text-align:left; 
+  -moz-box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.33);
+  -webkit-box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.33);
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.33);         
+}
+              
+.mbdialog{  
+  display:none;
+  cursor:default;
+  margin: 0px auto;        
+  position:absolute;
+  z-index:99999998;  
+  -webkit-backface-visibility: hidden;
+} 
+
+@media (max-width: 500px) {
+  .mbdialog,.dialogBody{
+    -webkit-transform:translate3d(0, 0, 0); //bugfix if theme has translate3d on field behind popup
+  }
+}
+
+.dialogTool{
+  position:relative;          
+}    
+
+.dialogClose{
+  position:absolute; 
+  top:-20px; 
+  right:-26px; 
+  background:url(../../Magebird_Popup/images/close_dark.png); 
+  background-position:5px 5px;
+  background-repeat:no-repeat;
+  height:26px;
+  width:26px;    
+  cursor:pointer; 
+  z-index:99999995;  
+}
+
+.dialogCloseCustom{ 
+  cursor:pointer;  
+}
+
+.dialogClose.overlay2{
+  background:url(../../Magebird_Popup/images/close_white.png); 
+  background-position:5px 5px;
+  background-repeat:no-repeat;     
+}
+
+.dialogClose.style2{
+  background:url(../../Magebird_Popup/images/close_big.png);  
+  height:29px;
+  width:29px; 
+  top:-15px; 
+  right:-15px;       
+} 
+
+.dialogClose.style2:hover{
+  background-position:0 -29px;     
+}
+
+.dialogClose.style4,.dialogClose.style3{
+  background:url(../../Magebird_Popup/images/close_simple_white.png) no-repeat 4px 4px;   
+  height:25px;
+  width:25px;      
+}
+
+.dialogClose.style3{
+  background:url(../../Magebird_Popup/images/close_simple_dark.png) no-repeat 4px 4px;          
+}
+
+.dialogClose.style6{
+  background:url(../../Magebird_Popup/images/close_big_x.png) no-repeat;   
+  top:7px; 
+  right:8px;            
+  width:20px;
+  height:20px;
+}
+
+.dialogClose.style6{
+  background:url(../../Magebird_Popup/images/close_big_x_d.png) no-repeat;              
+}
+
+.dialogClose.style7{
+  background:url(../../Magebird_Popup/images/close_transparent.png) no-repeat;   
+}
+
+.dialogClose.style8{
+  background:url(../../Magebird_Popup/images/close_big_x.png) no-repeat;   
+}
+
+.dialogClose.style9{
+  background:url(../../Magebird_Popup/images/close_big_x_bold.png) no-repeat;              
+}
+
+.dialogClose.style10{
+  background:url(../../Magebird_Popup/images/close_big_x_bold_d.png) no-repeat;              
+}
+
+.dialogClose.style11{
+  background:url(../../Magebird_Popup/images/white_circle.png) no-repeat;              
+}
+
+.dialogClose.style6,.dialogClose.style7,.dialogClose.style8,.dialogClose.style9,.dialogClose.style10,.dialogClose.style11{
+  width:30px;
+  height:30px;
+  background-position:center;
+}
+
+.dialogClose.style7,.dialogClose.style11{
+  width:35px;
+  height:35px;
+}
+
+.dialogClose.style4:hover,.dialogClose.style3:hover{  
+  background-position:4px -17px;   
+}
+
+.dialogClose.style1:hover{      
+  opacity: 0.9;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+}
+
+.imgType img{
+  display:block;        
+}
+
+.mbdialog .error, .mbdialog .warning{  
+  border:1px solid #EED2D8;
+  color:#B94A4A;
+  font-size:12px;
+  font-weight:normal;
+  text-shadow:1px 1px #FFFFFF;
+  background-color:#F2DDDE;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -o-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  border-radius: 2px;
+  margin:0 15px 15px 0;
+  padding:2px 5px;
+  -moz-box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.33);
+  -webkit-box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.33);
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.33);   
+  position:absolute;
+  z-index:999999;
+}
+
+.mbdialog .error p, .mbdialog .warning p{
+  margin:4px 0;
+}
+
+.transform-rotate-zoom1{
+   -moz-transition: all 0.7s ease-in-out;
+   -webkit-transition: all 0.7s ease-in-out;     
+   -o-transition: all 0.7s ease-in-out;
+   -ms-transition: all 0.7s ease-in-out;
+   transition: all 0.7s ease-in-out;  
+   
+  -moz-transform:rotate(0deg) scale(0.001);
+  -webkit-transform:rotate(0deg) scale(0.001);
+  -o-transform:rotate(0deg) scale(0.001);
+  -moz-transform:rotate(0deg) scale(0.001);
+  -ms-transform: rotate(0deg) scale(0.001);  
+}
+
+.transform-rotate-zoom2{
+ -webkit-transform: rotate(360deg) scale(1); 
+ -moz-transform: rotate(360deg) scale(1); 
+ -o-transform: rotate(360deg) scale(1); 
+ -ms-transform: rotate(360deg) scale(1); 
+ transform: rotate(360deg) scale(1);  
+}   
+
+
+.popuptransition{
+   -moz-transition: all 0.9s ease-in-out;
+   -webkit-transition: all 0.9s ease-in-out;     
+   -o-transition: all 0.9s ease-in-out;
+   -ms-transition: all 0.9s ease-in-out;
+   transition: all 0.9s ease-in-out;      
+}
+
+.transform-elastic1, .moctoddribegam{
+   -moz-transition: all 0.2s ease-in-out;
+   -webkit-transition: all 0.2s ease-in-out;     
+   -o-transition: all 0.2s ease-in-out;
+   -ms-transition: all 0.2s ease-in-out;
+   transition: all 0.2s ease-in-out;  
+   
+  -moz-transform:scale(0.001);
+  -webkit-transform:scale(0.001);
+  -o-transform:scale(0.001);
+  -moz-transform:scale(0.001);
+  -ms-transform:scale(0.001);   
+}
+ 
+.transform-elastic2{
+ -webkit-transform: scale(1.2); 
+ -moz-transform: scale(1.2); 
+ -o-transform: scale(1.2); 
+ -ms-transform: scale(1.2); 
+ transform: scale(1.2);   
+}
+
+.transform-elastic3{
+ -webkit-transform: scale(1); 
+ -moz-transform: scale(1); 
+ -o-transform: scale(1); 
+ -ms-transform:scale(1); 
+ transform: scale(1);   
+}
+
+.mbdialog table {              
+    border-spacing:0;
+    border-collapse:separate;
+} 
+
+/*FOLLOW WIDGET*/
+.followPopup{
+  line-height:1;            
+}
+
+.followPopup ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.followPopup li{
+  float:left;
+  margin-right:10px;
+  height:62px;
+  overflow:hidden;
+  width:63px;
+  text-align:center;
+}  
+
+.followPopup li img{
+  width:auto;
+}  
+
+.followPopup.tp2 li{
+  height:20px;                   
+}     
+
+.followPopup li.twitterFollow img,.followPopup li.pinFollow img{
+  margin-bottom:3px;
+  margin-left:5px;
+}
+
+.followPopup.tp3 li.twitterFollow img,li.twitterTweet img, .followPopup.tp3 li.pinFollow img{
+  margin-bottom:3px;
+  margin-left:0px;
+}
+
+.followPopup .fbLike{
+  min-width:48px;
+  margin-right:2px;
+  margin-left:-3px;
+}
+
+.followPopup.tp3 .fbLike{
+  margin-left:0px;
+}
+
+.followPopup .twitterTweet{
+  /*width:58px;*/  
+}
+
+.followPopup .twitterTweet{
+  visibility:visible !important;
+}
+
+.followPopup .gplusRecommend{
+  width:50px;
+}
+
+.gplusRecommend div{
+  vertical-align:top !important;
+}
+
+.followPopup .pinFollow{
+  min-width:59px;
+}
+
+.followPopup.tp3 li{
+  float:none;
+  width:63px !important;
+  margin-right:0;
+  text-align:center;
+  margin-bottom:10px;                   
+}
+
+
+/*FB like bugfix for ie*/
+.fb-like.fb_iframe_widget iframe{
+  min-width:49px !important;
+  min-height:61px !important;  
+  left:0;                              
+}
+/*END FOLLOW WIDGET*/

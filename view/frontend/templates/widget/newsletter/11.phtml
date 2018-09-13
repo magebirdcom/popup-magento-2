@@ -1,0 +1,64 @@
+<?php
+echo $this->getLayout()->createBlock('Magebird\Popup\Block\Widget\Newsletter')->setTemplate('Magebird_Popup::widget/newsletter/global.phtml')->toHtml();
+echo $this->getScript(11);
+$randomId = $this->getWidgetId();
+$color = $this->getButtonColor();
+$color1 = $this->brightness($color,10);
+$color2 = $this->brightness($color1,-60); 
+?>
+<style> 
+#<?php echo $randomId?>.newsletterPopup form {              
+    width: <?php echo $this->getData('width')?><?php echo $this->getData('width_unit')==2 ? "%" : "px";?>;
+}
+
+#<?php echo $randomId?>.newsletterPopup form input{
+  width: <?php echo $this->getData('width')?>px;
+  <?php if($this->getData('width_unit')==2):?>
+  width:100%;   
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:        border-box;  
+  <?php endif;?>  
+}
+
+#<?php echo $randomId?>.newsletterPopup button {
+    background-color: <?php echo $color; ?>;
+    /*border-color: <?php echo $color2; ?>;*/
+  	background-image: -webkit-linear-gradient(top, <?php echo $color1; ?> 0%, <?php echo $color2; ?> 100%);
+  	background-image: -moz-linear-gradient(top, <?php echo $color1; ?> 0%, <?php echo $color2; ?> 100%);
+  	background-image: -ms-linear-gradient(top, <?php echo $color1; ?> 0%, <?php echo $color2; ?> 100%);
+  	background-image: -o-linear-gradient(top, <?php echo $color1; ?> 0%, <?php echo $color2; ?> 100%);
+  	background-image: linear-gradient(top, <?php echo $color1; ?> 0%, <?php echo $color2; ?> 100%);
+  
+        
+    width: <?php echo $this->getData('width')?>px;    
+    color:<?php echo $this->getButtonTextColor()?>;
+    <?php if($this->getData('width_unit')==2):?>
+    width:100%;   
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing:        border-box;  
+    <?php endif;?>    
+} 
+#<?php echo $randomId?>.newsletterPopup form  button:hover{  
+    /*background: #c42f2f;*/
+  	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  	filter: alpha(opacity=100);
+  	-moz-opacity:1;
+  	-khtml-opacity: 1;
+  	opacity: 1;  
+}
+
+</style> 
+<div class="newsletterPopup tp11" id="<?php echo $randomId?>"> 
+  <div class="error" style="display:none;"></div>
+  <form method="post" id="popup-newsletter-form" data-widgetId="<?php echo $this->getWidgetId()?>" onsubmit="return false"> 
+        <input type="text" placeholder="<?php echo $this->__('Email address')?>" name="email" title="<?php echo __('Enter Your Email')?>" />          
+        <button class="shadding shadding1 async_false" type="submit" title="<?php echo __('Subscribe')?>">
+        <?php echo $this->getData('button_text') ? $this->getData('button_text') : __('Subscribe') ?>
+        </button>
+        <?php if($this->getShowCheckbox()):?>
+        <p class="checkboxAgree"><input type="checkbox" /><?php echo $this->getCheckboxText()?></p>
+        <?php endif;?>       
+  </form>
+</div> 

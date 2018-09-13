@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magebird_Popup::popup_manager" 
+             title="Magebird Popup"
+             module="Magebird_Popup"
+             sortOrder="30"
+             resource="Magebird_Popup::popup_manager"
+             parent="Magento_Backend::content"
+             action="magebird_popup/index/" />
+    </menu>
+</config>

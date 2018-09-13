@@ -1,0 +1,10 @@
+<?php
+$block->generateTokens();
+?>
+
+<p>Please copy both keys to magento magebird config area - AWeber section:</p>
+
+<ul>
+	<li>Access Token: <?php if (isset($_REQUEST["token"])) echo $_REQUEST["token"] ?></li>
+	<li>Access Secret: <?php if (isset($_REQUEST["secret"])) echo $_REQUEST["secret"] ?></li>
+</ul>

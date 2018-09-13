@@ -1,0 +1,33 @@
+.cssLoadedChecker2.moctod-dribegam{
+  display:none; /*DONT CHANGE THIS LINE! jQuery use this to check if css is loaded*/              
+}
+
+.newsletterPopup.tp8 form input {
+    height: 17px;
+    padding: 5px 0 5px 5px;
+    border: 1px solid #e0dede;
+    background: #fff;       
+}
+
+.newsletterPopup.tp8 form:focus {
+    outline: 0;
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0,0,0,0.8) inset;
+} 
+
+.newsletterPopup.tp8 form button {
+  border: none;
+  height: 18px;
+  padding: 5px 8px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left:13px;
+}
+
+.newsletterPopup.tp8 form table, .newsletterPopup.tp8 form input {
+  width:100%;
+}
+
+.newsletterPopup.tp8 form button {
+  width:auto;
+}

@@ -1,0 +1,14 @@
+<script type="text/javascript"> 
+if (typeof newslPopup === "undefined"){   
+  jQuery('head').append('<link rel="stylesheet" href="<?php echo $block->getViewFileUrl('Magebird_Popup::css/widget/newsletter/global.css') ?>" type="text/css" />');
+  var newslPopup = {};
+  newslPopup.ajaxUrl = '<?php echo $this->getAjaxUrl() ?>';
+  newslPopup.workingText = '<?php echo __('Working')?>...';    
+  var newslScriptUrl = mb_popup.correctHttps("<?php echo $block->getViewFileUrl('Magebird_Popup::js/newsletter.js') ?>");                                                            
+  jQuery.getScript(newslScriptUrl); 
+}
+</script>
+
+<!--DONT REMOVE! jQuery use it to check if css is loaded-->
+<div class="cssLoadedChecker moctod-dribegam"></div>
+<div class="cssLoadedChecker2 moctod-dribegam"></div>

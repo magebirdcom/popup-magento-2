@@ -1,0 +1,33 @@
+<?php 
+echo $this->getLayout()->createBlock('Magebird\Popup\Block\Widget\Buttons')->setTemplate('Magebird_Popup::widget/buttons/global.phtml')->toHtml();
+$color = $this->getColor();
+$color1 = $this->brightness($color,24);
+$color2 = $this->brightness($color1,-54);
+$color3 = $this->brightness($color,-35);
+?>
+<style>
+#<?php echo $this->getWidgetId()?>.popupButton{		 
+			-moz-border-radius: 1000px;
+			-webkit-border-radius: 1000px;
+			border-radius: 1000px;
+      background-color: <?php echo $color?>; 
+			background-image: -webkit-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+			background-image: -moz-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+			background-image: -ms-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+			background-image: -o-linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+			background-image: linear-gradient(top, <?php echo $color1?> 0%, <?php echo $color2?> 100%);
+			-webkit-box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 100, 0.35);
+			-moz-box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 100, 0.35);
+			-ms-box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 100, 0.35);
+			-o-box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 100, 0.35);
+			box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 100, 0.35);      
+			border: 1px solid <?php echo $color3?>; 
+      color:<?php echo $this->getButtonTextColor()?>
+}  
+</style>
+<?php if($this->getData('on_click')==2 || $this->getData('on_click')==3):?>
+  <a href="<?php echo $this->getData('button_href')?>" <?php if($this->getData('link_target')==2) echo 'target="_blank"'?> id="<?php echo $this->getWidgetId()?>" class="popupButton size<?php echo $this->buttonSize(); if($this->getData('on_click')==3) echo ' dialogCloseCustom'?>"><?php echo __($this->getData('button_text'))?></a>
+<?php else:?>
+  <a href="#" id="<?php echo $this->getData('widget_id')?>" class="popupButton size<?php echo $this->buttonSize()?>"><?php echo __($this->getData('button_text'))?></a>   
+  <?php echo $this->getJsHtml()?>
+<?php endif;?>

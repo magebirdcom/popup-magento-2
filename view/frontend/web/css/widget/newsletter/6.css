@@ -1,0 +1,27 @@
+.cssLoadedChecker2.moctod-dribegam{
+  display:none; /*DONT CHANGE THIS LINE! jQuery use this to check if css is loaded*/              
+}
+
+.newsletterPopup.tp6 form input {
+    height: auto;
+    padding: 9px 0 8px 5px;
+    font-size: 15px;
+    line-height:18px;
+    font-weight:bold;
+    border: 1px solid #e0dede;
+    background: #fff;
+    margin-bottom:6px;
+    text-align:center;        
+}
+
+
+.newsletterPopup.tp6 form button {
+    font-size:18px;
+    font-weight:bold;
+    height: 44px;
+    text-align:center;
+    padding: 0 4px;    
+    cursor: pointer;
+    border:none;  
+    display:block;
+}  

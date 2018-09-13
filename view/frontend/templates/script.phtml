@@ -1,0 +1,31 @@
+<script type="text/javascript" po_cmp_ignore>
+//<![CDATA[
+<?php
+$previewId = $this->getPreviewId() ? $this->getPreviewId() : 0;
+$templateId = $this->getTemplateId() ? $this->getTemplateId() : 0;
+$targetPageId = $this->getTargetPageId() ? $this->getTargetPageId() : 0;
+$filterId = $this->getFilterId() ? $this->getFilterId() : 0;
+$storeId = $this->getStoreId();                 
+$baseUrl = $this->getBaseUrl();
+$rootUrl = $this->getRootUrl();
+$pubDir = $this->getPubDir();
+$doMousetracking = false;
+$doGaTracking = false;
+
+$data = array('storeId'=>$storeId,
+              'previewId'=>$previewId,
+              'templateId'=>$templateId,
+              'popupPageId'=>$targetPageId,
+              'filterId'=>$filterId,
+              'page'=>$this->getPage(),              
+              'rootUrl'=>$rootUrl,
+              'pubDir'=>$pubDir,
+              'baseUrl'=>$baseUrl,
+              'doGaTracking'=>$doGaTracking,
+              'doMousetracking'=>$doMousetracking,
+              'customParams'=>''
+              );           
+?>
+var mbPopupParams = <?php echo json_encode($data);?>;
+//]]>
+</script>  
