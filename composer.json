@@ -1,43 +1,17 @@
 {
   "name": "magebird/popup-magento2",
-  "description": "TaxJar Sales Tax Module for Magento 2",
-  "type": "magento2-component",
-  "extra": {
-      "map": [
-        [
-          "lib/internal/*",
-          "lib/internal"
-        ],
-        [
-          "pub/media/*",
-          "pub/media"
-      ],
-      [
-        "magepub/*",
-        "pub"
-    ],
-
-    
-    [
-      
-        "wysiwyg/*",
-        "pub/media/wysiwyg"
-    ],
- 
-    [
-        "ostalo/*",
-        ""
-    ]
-  ]
-    },  
+  "description": "Magebird popup 2",
+  "type": "magento2-module",  
   "version": "1.4.7",
-  "license": "OSL-3.0",
+  "license": "proprietary",
   "autoload": {
       "files": [ "registration.php" ],
       "psr-4": {
           "Magebird\\Popup\\": ""
       }
   },
-  
+    "require": {
+        "magebirdcom/popup-lib": "*"
+    }  
   "minimum-stability": "dev"
 }
