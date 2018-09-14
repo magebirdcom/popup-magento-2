@@ -27,34 +27,42 @@ class Popup extends Template
 		if($consumerSecret == "" || $consumerKey == ""){
 			$this->_msgs->addError(__("Please save AWeber consumer secret and consumer key before visiting this page."));
 			
-		}elseif(empty($_GET['token']) and empty($_GET['secret'])){
+		}elseif(empty($this->getRequest()->getParam('token')) and empty($this->getRequest()->getParam('secret'))){
 			require_once($this->dir->getPath('lib_internal') . '/magebird/popup/Aweber/aweber_api/aweber_api.php');
 			$aweber = new AWeberAPI($consumerKey, $consumerSecret);
 		
 			if(empty($_COOKIE['accessToken'])){
-				if(empty($_GET['oauth_token'])){
+				if(empty($this->getRequest()->getParam('oauth_token']))){
 					$callbackUrl = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 					list($requestToken, $requestTokenSecret) = $aweber->getRequestToken($callbackUrl);
 					
 					setcookie('requestTokenSecret', $requestTokenSecret);
 					setcookie('callbackUrl', $callbackUrl);
 					header("Location: {$aweber->getAuthorizeUrl()}");
-					exit();
+					return;
 				}
 				
 				$aweber->user->tokenSecret = $_COOKIE['requestTokenSecret'];
-				$aweber->user->requestToken = $_GET['oauth_token'];
-				$aweber->user->verifier = $_GET['oauth_verifier'];
+				$aweber->user->requestToken = $this->getRequest()->getParam('oauth_token');
+				$aweber->user->verifier = $this->getRequest()->getParam('oauth_verifier');
 				list($accessToken, $accessTokenSecret) = $aweber->getAccessToken();
 				//setcookie('accessToken', $accessToken);
 				//setcookie('accessTokenSecret', $accessTokenSecret);
 				header('Location: '.$_COOKIE['callbackUrl']."?token=".$accessToken."&secret=".$accessTokenSecret);
-				exit();
+				return;
 			}
 			
 		}
 	}
-	
+
+	public function getAweberToken(){
+    return $this->getRequest()->getParam('token');
+  }
+  
+	public function getAweberSecret(){
+    return $this->getRequest()->getParam('secret');
+  }  
+  	
 	public function getAweberLists(){
 		$consumerSecret =  $this->_scopeConfig->getValue('magebird_popup/services/aweber_consumerSecret');
 		$consumerKey =  $this->_scopeConfig->getValue('magebird_popup/services/aweber_consumerKey');

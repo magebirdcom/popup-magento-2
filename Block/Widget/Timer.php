@@ -2,12 +2,15 @@
 namespace Magebird\Popup\Block\Widget; 
 class Timer extends \Magebird\Popup\Block\Widget\Popup{
   protected $popup;
+  protected $_popuphelper;
 	public function __construct(
 		\Magento\Backend\Block\Template\Context $context,
-    \Magebird\Popup\Model\Popup $popup,             
+    \Magebird\Popup\Model\Popup $popup,
+    \Magebird\Popup\Helper\Data $_popuphelper,             
 		array $data = []
 	){    
-    $this->_popup = $popup;    
+    $this->_popup = $popup;   
+    $this->_popuphelper = $_popuphelper; 
 		parent::__construct($context, $data);
 	}
 
@@ -41,7 +44,7 @@ class Timer extends \Magebird\Popup\Block\Widget\Popup{
       $widget = explode('widget_id="',$content);
       $widget = explode('"',$widget[1]);
       $widgetId = $widget[0];                 
-      $widgetData = Mage::helper('magebird_popup')->getWidgetData($content,$widgetId);          
+      $widgetData = $this->_popuphelper->getWidgetData($content,$widgetId);          
       return $widgetData;    
     }
     

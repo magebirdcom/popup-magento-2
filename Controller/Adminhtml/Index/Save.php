@@ -2,6 +2,8 @@
 
 namespace Magebird\Popup\Controller\Adminhtml\Index;
 
+use Magento\Framework\Exception\LocalizedException;
+
 use Magento\Backend\App\Action;
 
 class Save extends \Magento\Backend\App\Action
@@ -31,12 +33,13 @@ class Save extends \Magento\Backend\App\Action
 
     public function execute()
     {
+    
         $_redirectFactory = $this->resultRedirectFactory->create();
         $data = $this->getRequest()->getPostValue();        
         if ($data) {
             $data = $this->dataProcessor->filter($data);
-
-            if(isset($_FILES['image']['name']) && !empty($_FILES['image']['name'])){
+            $imageRequest = $this->getRequest()->getFiles('image');
+            if($imageRequest){
                 try {
                     $uploader = $this->_objectManager->create(
                                                    'Magento\MediaStorage\Model\File\Uploader',
@@ -50,7 +53,7 @@ class Save extends \Magento\Backend\App\Action
                     $result = $uploader->save($_media->getAbsolutePath().'/magebird_popup/'); 
                 } catch (\Exception $e) {
                     if ($e->getCode() != \Magento\Framework\File\Uploader::TMP_NAME_EMPTY) {
-                        throw new FrameworkException($e->getMessage());
+                        throw new LocalizedException($e->getMessage());
                     }
                 }                 
                 $data['image'] = 'magebird_popup/'.$uploader->getUploadedFileName();          

@@ -308,7 +308,7 @@ class Subscriber extends \Magento\Framework\Model\AbstractModel{
 			$subscribers->create($params);
 					
 			return true;
-		} catch(Exception $exc){
+		} catch(\Exception $exc){
 			return array("error"=>true,"msg"=>$exc->message);
 		}
 	}

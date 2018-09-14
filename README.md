@@ -4,7 +4,12 @@ If you have any problems with the installation please contact us and we will ins
 INSTALLATION:
 ---------------------------------------
 
-You can install the extension in two ways. If your server supports Composer you can use composer. Or you can use directly ftp upload.
+You can install the extension in three ways. If your server supports Composer you can use composer. You can also install extension through admin. Or you can use directly ftp upload.
+
+Install through admin:
+Follow Magento official guide https://docs.magento.com/marketplace/user_guide/quick-tour/install-extension.html.
+
+Install by Composer or ftp upload:
 
 Step 1
 

@@ -188,7 +188,9 @@ class Popup extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
           $mailchimpListId = $mailchimpListId[0];          
           if($mailchimpListId){
             $result = $api->get("/lists/$mailchimpListId/merge-fields");
-            if(!$result) Mage::throwException("Wrong Mailchimp Api Key");
+            if(!$result){
+              throw new \Exception("Wrong Mailchimp Api Key");
+            }  
             if(isset($result['status'])){
              if($result['title']=='Resource Not Found'){
                throw new \Exception("Wrong Mailchimp List id");
