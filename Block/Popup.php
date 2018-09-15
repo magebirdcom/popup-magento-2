@@ -32,7 +32,7 @@ class Popup extends Template
 			$aweber = new AWeberAPI($consumerKey, $consumerSecret);
 		
 			if(empty($_COOKIE['accessToken'])){
-				if(empty($this->getRequest()->getParam('oauth_token']))){
+				if(empty($this->getRequest()->getParam('oauth_token'))){
 					$callbackUrl = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 					list($requestToken, $requestTokenSecret) = $aweber->getRequestToken($callbackUrl);
 					
