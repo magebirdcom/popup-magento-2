@@ -24,8 +24,11 @@ Step 2
 
 In command line, using "cd", navigate to your Magento 2 root directory. Run commands:
 
+
 php bin/magento setup:upgrade
+
 php bin/magento setup:di:compile
+
 php bin/magento setup:static-content:deploy
 
 Popup extension will be added to admin menu under CONTENT->Magebird Popup. 
