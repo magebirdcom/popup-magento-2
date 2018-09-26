@@ -53,11 +53,11 @@ $action = $this->getAjaxUrl();
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
 <script type="text/javascript">  
-var smWorkingText = '<?php echo $this->__('Working')?>...';
+var smWorkingText = '<?php echo __('Working')?>...';
 var smCouponAction = '<?php echo $action ?>?rand='+Math.floor((Math.random() * 100000000) + 1);
 var smCouponCode = '<?php echo $this->getData('coupon_code') ?>'; 
 var smSuccessMsg = decodeURIComponent(('".$this->getData('success_msg')."'+'').replace(/\+/g, '%20')); 
-var smWorkingText = '<?php echo $this->__('Working')?>...';
+var smWorkingText = '<?php echo __('Working')?>...';
 var smPopupId = jQuery("#<?php echo $this->getWidgetId()?>").closest(".mbdialog").attr('data-popupid');
 var smWidgetId = '<?php echo $this->getWidgetId()?>';
 </script>

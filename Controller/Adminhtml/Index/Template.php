@@ -16,7 +16,7 @@ class Template extends \Magento\Backend\App\Action
 
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('Magebird_Popupp::popup_templates');
+        return $this->_authorization->isAllowed('Magebird_Popup::popup_manager');
     }
 
 

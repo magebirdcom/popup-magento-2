@@ -1,0 +1,17 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="adminhtml_cache_flush_all">
+        <observer name="magebird_popup_clear_cache" instance="Magebird\Popup\Observer\Clearcache" />
+    </event>      
+    <event name="adminhtml_cache_flush_system">
+        <observer name="magebird_popup_clear_cache" instance="Magebird\Popup\Observer\Clearcache" />
+    </event>        
+    <event name="adminhtml_cache_refresh_type">
+        <observer name="magebird_popup_clear_cache" instance="Magebird\Popup\Observer\Clearcache" />
+    </event>  
+    <event name="clean_media_cache_after">
+        <observer name="magebird_popup_clear_cache" instance="Magebird\Popup\Observer\Clearcache" />
+    </event>   
+    <event name="clean_static_files_cache_after">
+        <observer name="magebird_popup_clear_cache" instance="Magebird\Popup\Observer\Clearcache" />
+    </event>                                         
+</config>
