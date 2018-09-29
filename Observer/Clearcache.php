@@ -17,7 +17,7 @@ class Clearcache implements ObserverInterface
     public function execute(\Magento\Framework\Event\Observer $observer)
     {                           
         $this->popup->parsePopupContent();   
-        $this->popup->parsePopupContent(null,true)          
+        $this->popup->parsePopupContent(null,true);         
     }
     
 }
