@@ -604,10 +604,11 @@
         <depends>
             <parameter name="coupon_type" value="2" />
         </depends>       
-			</parameter>      
+			</parameter>    
+      <!--  
       <parameter name="coupon_limit_ip" xsi:type="select" required="true" visible="true" sort_order="14">
           <label translate="true">Use IP checker for coupon/popup?</label>
-          <description><![CDATA[If you select Yes, visitor won't see this popup or any other popup with the same Cookie/popup id if he or somebody with the same IP address already received coupon from this popup, even if he deleted browser cookies.]]></description>
+          <description><![CDATA[If you select Yes, visitor won't see this popup or any other popup with the same Cookie/popup id if he or somebody with the same IP address already received coupon from this popup, even if he deleted browser cookies.<br>IMPORTANT: This functionality is not GDPR compliant.]]></description>
           <depends>
               <parameter name="coupon_type" value="2" />
           </depends>            
@@ -620,10 +621,10 @@
               </option>
           </options>                  
       </parameter>    
-            
+      -->      
       <parameter name="confirm_need" xsi:type="select" required="false" visible="true" sort_order="15">
           <label translate="true">Required subscription confirmation for the coupon</label>
-          <description><![CDATA[For advanced use. Read the instructions first <a href="http://www.magebird.com/magento-extensions/popup.html?tab=faq#emailConfirmation" target="_blank">here</a> before you change this!]]></description>            
+          <description><![CDATA[For advanced use. Read the instructions first <a href="http://www.magebird.com/magento-extensions/popup-2.html?tab=faq#emailConfirmation" target="_blank">here</a> before you change this!]]></description>            
           <options>
               <option name="zero" value="0" selected="true">
                   <label translate="true">No</label>

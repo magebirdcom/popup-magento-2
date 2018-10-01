@@ -16,7 +16,7 @@ class CouponExpire extends \Magento\Backend\Block\Template
 
     public function prepareElementHtml(\Magento\Framework\Data\Form\Element\AbstractElement $element)
     {
-        $html = "<input type='checkbox' class='inheritTimer' /> Iherit from countdown timer (<a target='_blank' href='http://www.magebird.com/magento-extensions/popup.html?tab=faq#timelimitedCoupons'>What is that?</a>)
+        $html = "<input type='checkbox' class='inheritTimer' /> Iherit from countdown timer (<a target='_blank' href='http://www.magebird.com/magento-extensions/popup-2.html?tab=faq#timelimitedCoupons'>What is that?</a>)
         <script>
         var element = jQuery(\"#widget_options input[name='parameters\[coupon_expiration\]']\");
         element.attr('style', 'width: 70px !important');

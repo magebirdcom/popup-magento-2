@@ -66,7 +66,7 @@ class Conditions extends \Magento\Backend\Block\Widget\Form\Generic implements
         'default'   => 24 
   		));        
             
-		$note = "<p class='nm'><small>".__('Display the popup on the product pages only. Specify the product attribute to match your condition (e.g. the product price is more than 100$, the product color is green, ...). See the detailed instructions for this condition <a target="_blank" href="http://www.magebird.com/magento-extensions/popup.html?tab=faq#productAttributeCond">here</a>.')."</small></p>";
+		$note = "<p class='nm'><small>".__('Display the popup on the product pages only. Specify the product attribute to match your condition (e.g. the product price is more than 100$, the product color is green, ...). See the detailed instructions for this condition <a target="_blank" href="http://www.magebird.com/magento-extensions/popup-2.html?tab=faq#productAttributeCond">here</a>.')."</small></p>";
 		$fieldset->addField('product_attribute', 'text', array(
 				'label'     => __('Product Attribute'),
 				'name'      => 'product_attribute',
@@ -80,14 +80,14 @@ class Conditions extends \Magento\Backend\Block\Widget\Form\Generic implements
 				'note' => $note 
 			));                    
       
-		$note = "<p class='nm'><small>".__('Use <a href="http://data.okfn.org/data/core/country-list" target="_blank">iso codes</a> to display/hide the popup to/from visitors from specific locations. You can add more countries by separating codes with a comma (e.g. US, DE, IT). The extension supports GeoLite2 data created by MaxMind. The data is available at <a target="_blank" href="http://www.maxmind.com">http://www.maxmind.com</a>. To download the latest IP-database, follow the instructions given <a target="_blank" href="http://www.magebird.com/magento-extensions/popup.html?tab=faq#geoIP">here</a>.')."</small></p>";
+		$note = "<p class='nm'><small>".__('Use <a href="http://data.okfn.org/data/core/country-list" target="_blank">iso codes</a> to display/hide the popup to/from visitors from specific locations. You can add more countries by separating codes with a comma (e.g. US, DE, IT). The extension supports GeoLite2 data created by MaxMind. The data is available at <a target="_blank" href="http://www.maxmind.com">http://www.maxmind.com</a>. To download the latest IP-database, follow the instructions given <a target="_blank" href="http://www.magebird.com/magento-extensions/popup-2.html?tab=faq#geoIP">here</a>.')."</small></p>";
 		$fieldset->addField('country_ids', 'text', array(
 				'label'     => __('Country'),
 				'name'      => 'country_ids',
 				'note' => $note 
 			)); 
         
-		$note = "<p class='nm'><small>".__('You can exclude popup to visitors from specific countries. Use <a href="http://data.okfn.org/data/core/country-list" target="_blank">iso codes</a>. You can add more countries by separating codes with comma (e.g. US, DE, IT). This product includes GeoLite2 data created by MaxMind, available from <a target="_blank" href="http://www.maxmind.com">http://www.maxmind.com</a>. To download the latest IP database, please follow instructions from <a target="_blank" href="http://www.magebird.com/magento-extensions/popup.html?tab=faq#geoIP">our FAQ</a>.')."</small></p>";
+		$note = "<p class='nm'><small>".__('You can exclude popup to visitors from specific countries. Use <a href="http://data.okfn.org/data/core/country-list" target="_blank">iso codes</a>. You can add more countries by separating codes with comma (e.g. US, DE, IT). This product includes GeoLite2 data created by MaxMind, available from <a target="_blank" href="http://www.maxmind.com">http://www.maxmind.com</a>. To download the latest IP database, please follow instructions from <a target="_blank" href="http://www.magebird.com/magento-extensions/popup-2.html?tab=faq#geoIP">our FAQ</a>.')."</small></p>";
 		$fieldset->addField('not_country_ids', 'text', array(
 				'label'     => __('Exclude country'),
 				'name'      => 'not_country_ids',

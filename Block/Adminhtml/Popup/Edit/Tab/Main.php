@@ -82,7 +82,7 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
       ));  
 
     
-      $afterElementHtml = "<p class='nm'><small>".__('Tip: If you see this widget icon %1 inside the Editor, double-click on it to access the extra configuration options. You can also display dynamic product data inside the popup (<a target="_blank" href="%2">see instructions</a>).','<img style="vertical-align:middle;margin-top:3px; margin-bottom:-5px;" src="'.$this->getViewFileUrl('Magebird_Popup::images/widget.png').'" />','http://www.magebird.com/magento-extensions/popup.html?tab=faq#productInsidePopup').'<br>'.__('For design instructions <a target="_blank" href="%1">click here</a>.','http://www.magebird.com/magento-extensions/popup.html?tab=faq#designTips').'</small></p>';
+      $afterElementHtml = "<p class='nm'><small>".__('Tip: If you see this widget icon %1 inside the Editor, double-click on it to access the extra configuration options. You can also display dynamic product data inside the popup (<a target="_blank" href="%2">see instructions</a>).','<img style="vertical-align:middle;margin-top:3px; margin-bottom:-5px;" src="'.$this->getViewFileUrl('Magebird_Popup::images/widget.png').'" />','http://www.magebird.com/magento-extensions/popup-2.html?tab=faq#productInsidePopup').'<br>'.__('For design instructions <a target="_blank" href="%1">click here</a>.','http://www.magebird.com/magento-extensions/popup-2.html?tab=faq#designTips').'</small></p>';
       $wysiwygConfig = $this->_wysiwygConfig->getConfig(['tab_id' => $this->getTabId()]);
       $popupContent = $fieldset->addField('popup_content','editor',array(
               'name' => 'popup_content',

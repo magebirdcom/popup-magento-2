@@ -73,14 +73,14 @@ class Cartconditions extends \Magento\Backend\Block\Widget\Form\Generic implemen
           'note' => $note 
     		));  
         
-        $note = "<p class='nm'><small>".__('Display the popup only if there is at least 1 product with the specified attribute value (e.g. \'green\', \'portable\', etc.,). See the detailed instructions on this condition <a target="_blank" href="http://www.magebird.com/magento-extensions/popup.html?tab=faq#productAttributeCond">here</a>. Leave empty to skip this condition.')."</small></p>";
+        $note = "<p class='nm'><small>".__('Display the popup only if there is at least 1 product with the specified attribute value (e.g. \'green\', \'portable\', etc.,). See the detailed instructions on this condition <a target="_blank" href="http://www.magebird.com/magento-extensions/popup-2.html?tab=faq#productAttributeCond">here</a>. Leave empty to skip this condition.')."</small></p>";
         $cartSubtotalMin = $fieldset->addField('product_cart_attr', 'text', array(
     		  'label'     => __('Product attribute in cart'),
     		  'name'      => 'product_cart_attr',
           'note' => $note 
     		));   
         
-        $note = "<p class='nm'><small>".__('Display the popup only if there is NO product with the specified attribute value in cart (e.g. the cart contains NO products with the following values: \'green\', \'portable\', etc.). See the detailed instructions on this condition <a target="_blank" href="http://www.magebird.com/magento-extensions/popup.html?tab=faq#productAttributeCond">here</a>. Leave empty to skip this condition.')."</small></p>";
+        $note = "<p class='nm'><small>".__('Display the popup only if there is NO product with the specified attribute value in cart (e.g. the cart contains NO products with the following values: \'green\', \'portable\', etc.). See the detailed instructions on this condition <a target="_blank" href="http://www.magebird.com/magento-extensions/popup-2.html?tab=faq#productAttributeCond">here</a>. Leave empty to skip this condition.')."</small></p>";
         $cartSubtotalMin = $fieldset->addField('not_product_cart_attr', 'text', array(
     		  'label'     => __('Product attribute is NOT in cart'),
     		  'name'      => 'not_product_cart_attr',
