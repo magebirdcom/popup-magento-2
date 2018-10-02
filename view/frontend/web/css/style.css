@@ -330,3 +330,17 @@
   left:0;                              
 }
 /*END FOLLOW WIDGET*/
+
+.mbdialog button{
+  box-shadow:none;
+  border-radius:0;                
+}
+
+.mbdialog table>thead>tr>th, .mbdialog table>tbody>tr>th, .mbdialog table>tfoot>tr>th, 
+.mbdialog table>thead>tr>td, .mbdialog table>tbody>tr>td, .mbdialog table>tfoot>tr>td{
+  padding:0;         
+}
+
+.mbdialog table{
+  width:auto;               
+}
