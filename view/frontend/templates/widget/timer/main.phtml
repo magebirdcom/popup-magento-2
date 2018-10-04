@@ -33,11 +33,7 @@ var timerScrListener<?php echo $rand;?> = setInterval(function(){
     }    
     popupTimer[popupCookieId].timeoutMsg = decodeURIComponent(('<?php echo urlencode($this->getData('success_msg')) ?>'+'').replace(/\+/g, '%20'));
     //for case if there are 2 timers inside the same page       
-    startTimer(<?php echo $this->getOnTimeout()?>,popupId,timerType,popupCookieId)
-    console.log(<?php echo $this->getOnTimeout()?>)
-    console.log(popupId)
-    console.log(timerType)
-    console.log(popupCookieId)   
+    startTimer(<?php echo $this->getOnTimeout()?>,popupId,timerType,popupCookieId) 
   }
 },10) 
 </script>

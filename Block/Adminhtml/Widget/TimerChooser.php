@@ -36,9 +36,8 @@ class TimerChooser extends \Magento\Backend\Block\Template
             $uniqId
         );
         
-        if ($element->getValue()) {
-            $value = explode('/', $element->getValue());            
-            $label = "Template ".str_replace(".phtml","",$value[2]);            
+        if ($element->getValue()) {          
+            $label = "Template ".$element->getValue();            
             $chooser->setLabel($label);
         }
         

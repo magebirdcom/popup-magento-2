@@ -4,7 +4,7 @@
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
       
     <widget id="popup_timer" class="Magebird\Popup\Block\Widget\Timer">
-        <label translate="true">Popup Countdown Timer</label>
+        <label translate="true">Magebird Popup Countdown Timer</label>
         <description>Adds Countdown Timer into popup</description>
         <parameters> 
             <parameter name="widget_id" xsi:type="text" required="true" visible="false">          
