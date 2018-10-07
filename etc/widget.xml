@@ -372,8 +372,8 @@
         </depends>               
 			</parameter>  
 			<parameter name="rule_id" xsi:type="select" source_model="Magebird\Popup\Model\Widget\Source\Rules" visible="true" sort_order="10" >
-				<label translate="true">Shopping Cart Price Rule ID for Coupon</label>
-        <description><![CDATA[Write coupon code you want to be sent to subscribed users. Make sure that this coupon exists.]]></description>
+				<label translate="true">Shopping Cart Price Rule ID for Coupon</label>                              
+        <description><![CDATA[Choose your shoping cart rule you want to be used to generate coupons. Only rules with field <a href="http://www.magebird.com/magento-extensions/popup-2.html?tab=faq#dynamicCoupon">Use Auto Generation</a> checked on can be used. If you want to use static coupon code change "Coupon type" the above. See instructions <a href="http://www.magebird.com/magento-extensions/popup-2.html?tab=faq#dynamicCoupon">here</a>.]]></description>
         <depends>
             <parameter name="coupon_type" value="2" />
         </depends>        
@@ -579,7 +579,7 @@
 			</parameter> 
 			<parameter name="rule_id" xsi:type="select" source_model="Magebird\Popup\Model\Widget\Source\Rules" visible="true" sort_order="10" >
 				<label translate="true">Shopping Cart Price Rule ID for Coupon</label>
-        <description><![CDATA[Write coupon code you want to be sent to subscribed users. Make sure that this coupon exists.]]></description>
+        <description><![CDATA[Choose your shoping cart rule you want to be used to generate coupons. Only rules with field <a href="http://www.magebird.com/magento-extensions/popup-2.html?tab=faq#dynamicCoupon">Use Auto Generation</a> checked on can be used. If you want to use static coupon code change "Coupon type" the above. See instructions <a href="http://www.magebird.com/magento-extensions/popup-2.html?tab=faq#dynamicCoupon">here</a>.]]></description>
         <depends>
             <parameter name="coupon_type" value="2" />
         </depends>        

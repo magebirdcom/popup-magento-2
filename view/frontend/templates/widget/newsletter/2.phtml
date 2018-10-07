@@ -28,7 +28,7 @@
       </tr>
     </table>
     <?php if($this->getShowCheckbox()):?>
-      <p class="checkboxAgree"><input type="checkbox" /><?php echo $this->getCheckboxText()?></p>
+      <p class="checkboxAgree"><input type="checkbox" /><?php echo html_entity_decode($this->getCheckboxText())?></p>
     <?php endif;?>    
   </form>  
 </div>

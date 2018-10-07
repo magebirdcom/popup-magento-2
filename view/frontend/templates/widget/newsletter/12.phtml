@@ -40,7 +40,7 @@ $color2 = $this->brightness($color1,-60);
   <form method="post" id="popup-newsletter-form" data-widgetId="<?php echo $this->getWidgetId()?>" onsubmit="return false"> 
         <input type="text" placeholder="<?php echo __('Email address')?>" name="email" title="<?php echo __('Enter Your Email')?>" />          
         <?php if($this->getShowCheckbox()):?>
-          <p class="checkboxAgree"><input type="checkbox" /><?php echo $this->getCheckboxText()?></p>
+          <p class="checkboxAgree"><input type="checkbox" /><?php echo html_entity_decode($this->getCheckboxText())?></p>
         <?php endif;?>           
         <button class="shadding shadding1 async_false" type="submit" title="<?php echo __('Subscribe')?>">
         <?php echo $this->getData('button_text') ? $this->getData('button_text') : __('Subscribe') ?>

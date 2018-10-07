@@ -12,10 +12,10 @@ class Newcoupon extends \Magento\Framework\App\Action\Action
     
     protected $resultRawFactory;
     
-    protected $cart;
+    protected $cart;        
     
-    protected $checkoutSession;    
-    
+    protected $customerSession;
+        
     protected $_cpnHelper;  
     
     
@@ -29,7 +29,8 @@ class Newcoupon extends \Magento\Framework\App\Action\Action
       \Magento\Framework\Controller\Result\RawFactory $resultRawFactory,
       \Magento\Checkout\Model\Cart $cart,
       \Magento\Checkout\Model\Session $session,
-      \Magento\SalesRule\Model\Rule $salesrule      
+      \Magento\SalesRule\Model\Rule $salesrule,
+      \Magento\Customer\Model\Session $customerSession      
     )
     {
         parent::__construct($context);
@@ -40,7 +41,8 @@ class Newcoupon extends \Magento\Framework\App\Action\Action
         $this->resultRawFactory = $resultRawFactory;
         $this->cart = $cart;
         $this->checkoutSession = $session;
-        $this->salesrule = $salesrule;
+        $this->salesrule = $salesrule; 
+        $this->customerSession = $customerSession;                
     }
 	
     public function execute()
@@ -59,7 +61,7 @@ class Newcoupon extends \Magento\Framework\App\Action\Action
           }                                 
         }
         if($coupon && isset($widgetValues['apply_coupon']) && $widgetValues['apply_coupon']==1){
-          $this->checkoutSession->setData("coupon_code",$coupon);
+          $this->customerSession->setData("coupon_code",$coupon);
           $this->cart->getQuote()->setCouponCode($coupon)->save();  
           $this->cart->getQuote()->setTotalsCollectedFlag(false)->collectTotals()->save();  
           $this->cart->getQuote()->collectTotals()->save();                    

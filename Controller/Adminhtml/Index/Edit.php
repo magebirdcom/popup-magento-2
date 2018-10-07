@@ -88,7 +88,9 @@ class Edit extends \Magento\Backend\App\Action
           $content = $duplicate->getData('popup_content');
           //because widget_id must be unique   
           $content = preg_replace_callback('/widget_id="_/',array(get_class($this),'renameWidgetIde'),$content); 
-          $duplicate->setData('popup_content',$content);          
+          $duplicate->setData('popup_content',$content);   
+          $randString = substr(md5(time()),0,6);
+          $duplicate->setData('cookie_id',$randString);                  
           $duplicate->setData('popup_id',0);        
         }else{
             $model = $this->_objectManager->create('Magebird\Popup\Model\Popup');
