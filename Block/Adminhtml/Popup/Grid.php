@@ -56,7 +56,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
           $trialStart = $this->_scopeConfig->getValue('magebird_popup/general/trial_start');                
           if($trialStart>strtotime('-7 days')){
             $days = ceil((($trialStart+60*60*24*7)-time())/60/60/24);
-            $this->messageManager->addWarning("You "."are "."curr"."ently using "."fr"."ee tr"."ial mode which will ex"."pire in $days days. If you purcha"."ched the exte"."nsion go to Sto"."re->Config"."uration->MAGE"."BIRD EXTENS"."IONS->Popup to acti"."vate your licence (if you get 40"."4 error, logo"."ut from admin and login again). After the tri"."al per"."iod is over your popups won't be displayed any"."more until you submit your licence.");                   
+            $this->messageManager->addWarning("You "."are "."curr"."ently using "."fr"."ee tr"."ial mode which will ex"."pire in $days days. If you purcha"."sed the exte"."nsion go to Sto"."re->Config"."uration->MAGE"."BIRD EXTENS"."IONS->Popup to acti"."vate your licence (if you get 40"."4 error, logo"."ut from admin and login again). After the tri"."al per"."iod is over your popups won't be displayed any"."more until you submit your licence.");                   
           }else{ 
             $this->messageManager->addError("You haven't subm"."ited your exten"."sion licence yet. Your popups won't be displ"."ayed any"."more. Go to Sto"."re->Configu"."ration->MAGE"."BIRD EXTENS"."IONS->Popup to acti"."vate your lic"."ence.");                                                    
           }
