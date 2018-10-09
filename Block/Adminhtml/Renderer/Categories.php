@@ -37,7 +37,7 @@ class Categories extends \Magento\Framework\Data\Form\Element\AbstractElement
         }                       
         
         $url = $this->urlBuilder->getUrl('*/*/categorychooser');
-        $html = '<input style="width:80%;" id="popup_main_category_ids" name="category_ids" data-ui-id="popup-edit-tab-cartconditions-fieldset-element-text-category-ids" value='.$value.' type="text" class=" input-text admin__control-text"><button id="categories">Select</button>';        
+        $html = '<input style="width:80%;" id="popup_main_category_ids" name="category_ids" data-ui-id="popup-edit-tab-cartconditions-fieldset-element-text-category-ids" value="'.$value.'" type="text" class=" input-text admin__control-text"><button id="categories">Select</button>';        
         $html .= "
         <div id='categoryBrowser'>
             <h1>Please wait.... </h1>
