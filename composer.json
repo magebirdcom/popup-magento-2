@@ -2,7 +2,7 @@
   "name": "magebird/popup",
   "description": "Magebird Popup 2",
   "type": "magento2-module",  
-  "version": "1.4.8",
+  "version": "1.4.9",
   "license": "proprietary",
   "autoload": {
       "files": [ "registration.php" ],
