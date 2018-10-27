@@ -27,10 +27,11 @@ class Plugin{
 	}
 	
 	public function afterExecute(\Magento\Newsletter\Controller\Subscriber\Confirm $subject, $result){
+  
 		$subscriber = $this->_subscriberFactory;
 		$subscriber->load($subject->getRequest()->getParam("id"));
 		
-		//user confirmed - check for cupon
+		//user confirmed - check for coupon
 		if($subscriber->getStatus() == 1){		
 			$email = $subscriber->getEmail();
 			$coll = $this->_popupSubscriber->getCollection();
@@ -38,25 +39,30 @@ class Plugin{
 			
 			$popupSubscriber = $coll->getLastItem();
 			$popupSubscriberData = $popupSubscriber->getData();
-			$coupon = $popupSubscriberData["coupon_code"];
-			
+      $coupon = false;
+      if(isset($popupSubscriberData["coupon_code"])){
+        $coupon = $popupSubscriberData["coupon_code"];
+      }      			
 			if(!$coupon && isset($popupSubscriberData['rule_id']) && $popupSubscriberData['rule_id']){
 				$coupon = $this->_cpnHelper->generateCoupon($popupSubscriberData);
 			}
-	
-			if($popupSubscriberData['apply_coupon']==1){
-				$this->_customerSession->setData("coupon_code",$coupon);         
-				$this->_cart->getQuote()->setCouponCode($coupon);
-				$this->_cart->getQuote()->setTotalsCollectedFlag(false)->collectTotals()->save();  
-				$this->_cart->getQuote()->collectTotals()->save();                
-			}   
-			if($popupSubscriberData['send_coupon']==1){              
-				$this->_popupSubscriber->mailCoupon($email,$coupon);
-			}  
-			$this->_msgs->addSuccess('Your coupon code is: '.$coupon);
-			        
-			$this->_popupSubscriber->cleanOldEmails();
-			$this->_popupSubscriber->deleteTempSubscriber($email);
+      
+      if($coupon){
+    			if($popupSubscriberData['apply_coupon']==1){
+    				$this->_customerSession->setData("coupon_code",$coupon);         
+    				$this->_cart->getQuote()->setCouponCode($coupon);
+    				$this->_cart->getQuote()->setTotalsCollectedFlag(false)->collectTotals()->save();  
+    				$this->_cart->getQuote()->collectTotals()->save();                
+    			}   
+    			if($popupSubscriberData['send_coupon']==1){              
+    				$this->_popupSubscriber->mailCoupon($email,$coupon);
+    			}  
+          
+    			$this->_msgs->addSuccess('Your coupon code is: '.$coupon);
+    			        
+    			$this->_popupSubscriber->cleanOldEmails();
+    			$this->_popupSubscriber->deleteTempSubscriber($email);
+      }
 		}
 	} 
 }
