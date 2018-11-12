@@ -54,6 +54,8 @@ class Save extends \Magento\Backend\App\Action
                 } catch (\Exception $e) {
                     if ($e->getCode() != \Magento\Framework\File\Uploader::TMP_NAME_EMPTY) {
                         throw new LocalizedException($e->getMessage());
+                    }else{
+                      $data['image'] = $data['image']['value'];
                     }
                 }                 
                 $data['image'] = 'magebird_popup/'.$uploader->getUploadedFileName();          
