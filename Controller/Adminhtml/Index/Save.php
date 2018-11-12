@@ -50,15 +50,15 @@ class Save extends \Magento\Backend\App\Action
                     $_media = $this->_objectManager->get('Magento\Framework\Filesystem')
                                                         ->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::MEDIA);                                                                        
                                                      
-                    $result = $uploader->save($_media->getAbsolutePath().'/magebird_popup/'); 
+                    $result = $uploader->save($_media->getAbsolutePath().'/magebird_popup/');
+                    $data['image'] = 'magebird_popup/'.$uploader->getUploadedFileName(); 
                 } catch (\Exception $e) {
                     if ($e->getCode() != \Magento\Framework\File\Uploader::TMP_NAME_EMPTY) {
                         throw new LocalizedException($e->getMessage());
                     }else{
                       $data['image'] = $data['image']['value'];
                     }
-                }                 
-                $data['image'] = 'magebird_popup/'.$uploader->getUploadedFileName();          
+                }                                           
             }else{
                if(isset($data['image']['delete'])){
                   $data['image'] = '';
