@@ -197,9 +197,13 @@
                   <label>Add Subscriber's e-mail to Dotmailer</label>
                   <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
               </field>   
+              <field id="dotmailer_api_endpoint" translate="label" type="text" sortOrder="32" showInDefault="1" showInWebsite="1" showInStore="1">
+                  <label>Dotmailer API endpoint</label>
+                  <comment><![CDATA[To find API endpoint navigate in your Dotmailer account to Access->API users]]></comment>
+                  <depends><field id="*/*/enable_dotmailer">1</field></depends>
+              </field>              
               <field id="dotmailer_email" translate="label" type="text" sortOrder="32" showInDefault="1" showInWebsite="1" showInStore="1">
                   <label>Dotmailer api email</label>
-                  <comment><![CDATA[You can find the Key inside Emma <a href="https://app.e2ma.net/app2/billing/settings/">Account Settings</a>]]></comment>
                   <depends><field id="*/*/enable_dotmailer">1</field></depends>
               </field>   
               <field id="dotmailer_password" translate="label" type="text" sortOrder="32" showInDefault="1" showInWebsite="1" showInStore="1">

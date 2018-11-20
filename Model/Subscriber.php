@@ -376,7 +376,7 @@ class Subscriber extends \Magento\Framework\Model\AbstractModel{
     
     $apiEmail = $this->scopeConfig->getValue('magebird_popup/services/dotmailer_email');
     $password = $this->scopeConfig->getValue('magebird_popup/services/dotmailer_password');
-
+    $apiEndpoint = $this->scopeConfig->getValue('magebird_popup/services/dotmailer_api_endpoint');
     $data = array(
         'Email' => $email,
         'EmailType' => 'Html',
@@ -393,7 +393,7 @@ class Subscriber extends \Magento\Framework\Model\AbstractModel{
     
         )
     );
-    $dotmailer = new Dotmailer($apiEmail,$password);
+    $dotmailer = new Dotmailer($apiEmail,$password,$apiEndpoint);
     $response = $dotmailer->subscribe($addressId,$data);
     return $response;
   }   
