@@ -14,17 +14,20 @@ class Popup extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     protected $dir; 
     protected $scopeConfig;
     protected $_messageManager;
+    protected $request;
     public function __construct(     
         \Magento\Framework\Model\ResourceModel\Db\Context $context,
         \Magento\Framework\App\Filesystem\DirectoryList $dir,
         \Magento\Framework\Message\ManagerInterface $messageManager,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
+        \Magento\Framework\App\Request\Http $request,
         $resourcePrefix = null    
     ) {
         parent::__construct($context, $resourcePrefix);
         $this->dir = $dir;
         $this->messageManager = $messageManager;
         $this->scopeConfig = $scopeConfig;
+        $this->request = $request;
     }
     
     protected function _construct()
@@ -33,7 +36,9 @@ class Popup extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     }
     
     protected function _beforeSave(\Magento\Framework\Model\AbstractModel $object)
-    {          
+    {
+          $action     = $this->request->getActionName();
+          if($action=='massStatus' || $action=='massReset') return;              
           $this->mailchimpVars($object->getData('popup_content'));
           $this->getResponseCustoms($object->getData('popup_content'));
           $this->campaignMonitorCustoms($object->getData('popup_content'));
@@ -76,7 +81,10 @@ class Popup extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
           return parent::_beforeSave($object);
     }
     
-      protected function _afterSave(\Magento\Framework\Model\AbstractModel $object) { 
+      protected function _afterSave(\Magento\Framework\Model\AbstractModel $object) {
+          $action     = $this->request->getActionName();
+          if($action=='massStatus' || $action=='massReset') return;
+                 
           $condition = ['popup_id = ?' => (int)$object->getId()];
           $updateTables = array(
             array('name'=>'magebird_popup_day','dataName'=>'day','field'=>'day'),
