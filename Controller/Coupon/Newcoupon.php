@@ -48,7 +48,9 @@ class Newcoupon extends \Magento\Framework\App\Action\Action
     public function execute()
     {
         $coupon = '';        
-        $_popup = $this->_popup->load($this->request->getParam('popupId'));
+        $popupId = $this->request->getParam('popupId');
+        if(!$popupId) return;
+        $_popup = $this->_popup->load($popupId);
         $widgetValues = $this->_helper->getWidgetData($_popup->getPopupContent(),$this->request->getParam('widgetId'));
         if(isset($widgetValues['coupon_code']) && $widgetValues['coupon_code']){
           $coupon = $widgetValues['coupon_code'];

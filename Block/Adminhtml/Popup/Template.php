@@ -38,8 +38,8 @@ class Template extends \Magento\Backend\Block\Widget\Grid\Extended
         $this->setId('popupGrid');
         $this->setDefaultSort('popup_id');
         $this->setDefaultDir('DESC');
-        $this->setUseAjax(true);
-        $this->setSaveParametersInSession(true);
+        $this->setUseAjax(false);
+        $this->setSaveParametersInSession(false);
     }
 
 
