@@ -2,7 +2,6 @@
 namespace Magebird\Popup\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
-use Magento\Framework\DataObject as Object;
 
 class Updatesession implements ObserverInterface{
 	protected $_request;

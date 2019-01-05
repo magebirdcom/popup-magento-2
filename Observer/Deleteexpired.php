@@ -2,7 +2,6 @@
 namespace Magebird\Popup\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
-use Magento\Framework\DataObject as Object;
 
 class Deleteexpired implements ObserverInterface
 {
@@ -28,22 +27,7 @@ class Deleteexpired implements ObserverInterface
     { 
     return;           
       if($observer){    
-        $to      = 'nobody@example.com';
-        $subject = 'Observer';
-        $message = $observer->getData('event')->getName();
-        $message = $this->request->getRouteName();
-        $message .= " ".$this->request->getControllerName();
-        $message .= " ".$this->request->getModuleName();
-        $message .= " ".$this->request->getActionName();
-        $message .= " ".$_SERVER['REQUEST_URI'];  
-        //\Zend_Debug::dump($message); exit;
-        $headers = 'From: webmaster@example.com' . "\r\n" .
-            'Reply-To: webmaster@example.com' . "\r\n" .
-            'X-Mailer: PHP/' . phpversion();
-        mail($to, $subject, $message, $headers); 
-        //exit;                              
-        //$coupon = $observer->getData('quote')->getData('coupon_code');
-        //$coupon = $this->checkoutSession->getQuote()->getData('coupon_code');
+
 $coupon = null;
         
         
