@@ -131,18 +131,24 @@ class Newsletter extends \Magento\Framework\App\Action\Action{
 		if($magentoNative){
 			$isSubscribed = $this->_subscriber->loadByEmail($email);  
 			if($isSubscribed->getData('subscriber_status')!=1){
-				$status = $this->_subscriber->subscribe($email);    
+				try{
+          $status = $this->_subscriber->subscribe($email);  
+        } catch (\Exception $e) {
+          $ajaxExceptions['exceptions'][] = $e->getMessage();           
+        }         				    
 			}else{
 				if($validUTF8){
 					$ajaxExceptions['exceptions'][] = __('You are already subscribed to our newsletter');
 				}else{
 					$ajaxExceptions['exceptions'][] = utf8_encode(__('You are already subscribed to our newsletter'));
-				}                             
-				$response = json_encode($ajaxExceptions);
-				$this->getResponse()->setBody($response);  
-				return;              
+				}                                      
 			}                                                               
-		}                                              
+		}
+    if($ajaxExceptions){
+      $response = json_encode($ajaxExceptions);
+      $this->getResponse()->setBody($response);
+      return;    
+    }                                                   
         
 		//Mailchimp subscription
 		if($mailchimpListId && $mailchimp){
