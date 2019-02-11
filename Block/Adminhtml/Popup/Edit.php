@@ -14,6 +14,12 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
      */
     protected $_coreRegistry = null;
 
+    protected $_scopeConfig;
+    
+    protected $_messageManager;
+    
+    protected $_popuphelper;
+    
     /**
      * @param \Magento\Backend\Block\Widget\Context $context
      * @param \Magento\Framework\Registry $registry
@@ -21,10 +27,16 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
      */
     public function __construct(
         \Magento\Backend\Block\Widget\Context $context,
+        \Magento\Backend\Helper\Data $backendHelper,
         \Magento\Framework\Registry $registry,
+        \Magebird\Popup\Helper\Data $popuphelper,
+        \Magento\Framework\Message\ManagerInterface $messageManager,
         array $data = []
     ) {
         $this->_coreRegistry = $registry;
+        $this->_scopeConfig = $context->getScopeConfig();
+        $this->messageManager = $messageManager;
+        $this->_popuphelper = $popuphelper;
         parent::__construct($context, $data);
     }
 
@@ -118,7 +130,13 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
                     tinyMCE.execCommand('mceRemoveControl', false, 'page_content');
                 }
             };
-        ";
+        "; 
+        $extensionKey = $this->_scopeConfig->getValue('magebird_popup/general/extension_key'); 
+        $networkError = $this->_popuphelper->checkNetworkError();
+         if(empty($extensionKey) && $networkError){
+          $dismissUrl = $this->getUrl('magebird_popup/index/dismissError', ['_current' => true, '_use_rewrite' => true, '_query'=>'isAjax=true']);                                      
+          $this->messageManager->addError("Script magebirdpopup.php is not web-accessible and popups won't show up. Please read instructions <a target='_blank' href='https://www.magebird.com/magento-extensions/popup-2.html?tab=faq#requestType'>here</a>. If the problem has been resolved, click <a href='javascript:void(0)' data-url='".$dismissUrl."' onclick='dismissNetworkError(this);'>here</a> to remove this message.");
+        }                         
         return parent::_prepareLayout();
     }
 }

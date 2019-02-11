@@ -135,3 +135,22 @@ function disableInputs(selector){
       });    
     }          
 } 
+
+function dismissNetworkError(el){
+    var element = jQuery(el)
+    jQuery(el).text('dismissing...');
+    var url = jQuery(el).attr('data-url');
+    jQuery.ajax({    
+      type: "POST",
+      url: url,
+      data:'form_key='+window.FORM_KEY,
+      success: function(response){      
+        if(response.success=='false'){
+          alert(response.error)
+        }else{
+          element.closest('.message-error').fadeOut();                 
+        }          
+      }
+    });
+
+};

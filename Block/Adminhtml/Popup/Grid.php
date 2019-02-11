@@ -16,9 +16,12 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
     
     protected $_messageManager;
     
+    protected $_popuphelper;
+    
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Backend\Helper\Data $backendHelper,
+        \Magebird\Popup\Helper\Data $popuphelper,
         \Magebird\Popup\Model\Popup $popup,
         \Magebird\Popup\Model\ResourceModel\Popup\CollectionFactory $collectionFactory,
         \Magento\Framework\App\ResourceConnection $resource,
@@ -27,6 +30,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
         array $data = []
     ) {
         $this->_collectionFactory = $collectionFactory;
+        $this->_popuphelper = $popuphelper;
         $this->_popup = $popup;
         $this->_resource = $resource;
         $this->_storeManager = $context->getStoreManager();
@@ -60,7 +64,13 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
           }else{ 
             $this->messageManager->addError("You haven't subm"."ited your exten"."sion licence yet. Your popups won't be displ"."ayed any"."more. Go to Sto"."re->Configu"."ration->MAGE"."BIRD EXTENS"."IONS->Popup to acti"."vate your lic"."ence. You can buy the licence <a href='https://www.magebird.com/magento-extensions/popup-2.html' target='_blank'>here</a>.");                                                    
           }
-        }                
+        } 
+        
+        $networkError = $this->_popuphelper->checkNetworkError();
+        if(empty($extensionKey) && $networkError){    
+          $dismissUrl = $this->getUrl('magebird_popup/index/dismissError', ['_current' => true, '_use_rewrite' => true, '_query'=>'isAjax=true']);                                      
+          $this->messageManager->addError("Script magebirdpopup.php is not web-accessible and popups won't show up. Please read instructions <a target='_blank' href='https://www.magebird.com/magento-extensions/popup-2.html?tab=faq#requestType'>here</a>. If the problem has been resolved, click <a href='javascript:void(0)' data-url='".$dismissUrl."' onclick='dismissNetworkError(this);'>here</a> to remove this message.");
+        }                         
         return parent::_prepareLayout();
     } 
 

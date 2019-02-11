@@ -293,5 +293,20 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper{
 		}    
 		   
 	}    
-    
+
+  function checkNetworkError(){
+    //direct query to prevent cache
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $_resource = $objectManager->get('\Magento\Framework\App\ResourceConnection');
+    $tableName = $_resource->getTableName('core_config_data');
+    $query = "SELECT value FROM $tableName WHERE path='magebird_popup/general/network_error';";
+    $connection = $_resource->getConnection();
+    $results = $connection->fetchOne($query);
+    if($results){
+      return $results;
+		}else{
+      return 0;
+    }  
+  }   
+      
 }

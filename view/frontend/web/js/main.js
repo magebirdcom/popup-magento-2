@@ -885,7 +885,17 @@
               }        
             },
             error: function(){
-              console.log('Unknown error for url '+mb_popup.showPopupsUrl);          
+              if(mbPopupParams.previewId || mbPopupParams.templateId){
+                alert('magebirdpopup.php script is not web-accessible. Please read instruction here: https://www.magebird.com/magento-extensions/popup-2.html?tab=faq#requestType')
+              }
+              console.log('Unknown error for url '+mb_popup.showPopupsUrl);
+              jQuery.ajax({
+                type: mbPopupParams.requestMethod,
+                url: decodeURIComponent(mbPopupParams.baseUrl)+'magebird_popup/index/error',
+                error: function(){
+                  console.log('Unknown error for url '+mb_popup.baseUrl+'magebird_popup/index/error');          
+                }                       
+              });                          
             }                       
           });       
       },    
