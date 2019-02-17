@@ -615,4 +615,310 @@
 			</parameter>   
 		</parameters>
 	</widget>
+  <widget id="popup_register" class="Magebird\Popup\Block\Widget\Register">
+		<label translate="true">Magebird Popup Register</label>
+		<description>Adds Register form into popup</description>
+		<parameters>   
+          <parameter name="widget_id" xsi:type="text" visible="false" required="true" sort_order="1" >
+              <label translate="true">Widget id</label>
+          </parameter> 
+          <parameter name="template" xsi:type="block" required="true" visible="true" sort_order="2">
+              <label translate="true">Register form template</label>  
+              <block class="Magebird\Popup\Block\Adminhtml\Widget\RegisterChooser">
+                  <data>
+                      <item name="button" xsi:type="array">
+                          <item name="open" xsi:type="string">Choose template...</item>
+                      </item>
+                  </data>
+              </block>            
+          </parameter>
+    			<parameter name="width" xsi:type="text"  visible="true" required="true" sort_order="3" >
+    				<label translate="true">Register form width</label>
+            <description><![CDATA[Set in pixels or percentage. Define the width value and select the necessary width unit in the field below.]]></description>
+    			</parameter>  
+          <parameter name="width_unit" xsi:type="select" required="true" visible="true">
+              <label translate="true">Register form width unit</label>
+              <description translate="true"><![CDATA[Select pixels, if you want to set the fixed width. Use % if you have responsive design for mobile and need a dynamic width.]]></description>
+              <options>
+                  <option name="default" value="1" selected="true">
+                      <label translate="true">Px</label>
+                  </option>
+                  <option name="item" value="2">
+                      <label translate="true">Percentage (%)</label>
+                  </option>
+              </options>
+          </parameter> 
+    			<parameter name="button_text" xsi:type="text"  visible="true" sort_order="4" >
+    				<label translate="true">Button text</label>
+            <description>Leave empty for the default 'Register' button text.</description>
+    			</parameter>      
+    			<parameter name="button_color" xsi:type="text"  visible="true" sort_order="6">
+    				<label translate="true">Button color</label>
+            <description><![CDATA[Use the Hex value and <a target="_blank" href="http://www.colorpicker.com/">Colorpicker.com</a> to pick color.]]></description>
+    			</parameter>
+    			<parameter name="button_text_color" xsi:type="text"  visible="true" sort_order="7" >
+    				<label translate="true">Button text color</label>
+            <description><![CDATA[#FFFFFF (white) is the default value. Use the Hex value and <a target="_blank" href="http://www.colorpicker.com/">Colorpicker.com</a> to pick color.]]></description>
+            <value>#FFFFFF</value>        
+    			</parameter>
+          <parameter name="newsletter_option" xsi:type="select" required="true" visible="true">
+              <label translate="true">Newsletter option</label>
+              <options>
+                  <option name="one" value="1" selected="true">
+                      <label translate="true">Don't show newsletter checkbox, automatically subscribe</label>
+                  </option>
+                  <option name="two" value="2">
+                      <label translate="true">Show subscribe checkbox, subscribe if checked</label>
+                  </option>
+                  <option name="three" value="3">
+                      <label translate="true">Don't show subscribe checkbox and don't subscribe</label>
+                  </option>              
+              </options>
+          </parameter>  
+    			<parameter name="checkbox_text" xsi:type="text"  visible="true" sort_order="8">
+    				<label translate="true">Newsletter checkbox text</label>
+            <description><![CDATA[Text beside newsletter checkbox. Default is 'Subscribe newsletter'.]]></description>
+            <value>Subscribe newsletter</value>
+            <depends>
+                <parameter name="newsletter_option" value="2" />
+            </depends>                   
+    			</parameter>      
+          <parameter name="checkbox_checked" xsi:type="select" required="true" visible="true" sort_order="9">
+              <label translate="true">Newsletter checkbox checked</label>
+              <description><![CDATA[Should be newsletter checkbox checked by default?]]></description>
+              <options>
+                  <option name="default" value="1" selected="true">
+                      <label translate="true">Yes</label>
+                  </option>
+                  <option name="item" value="2">
+                      <label translate="true">No</label>
+                  </option>             
+              </options>
+            <depends>
+                <parameter name="newsletter_option" value="2" />
+            </depends>            
+          </parameter>  
+          <parameter name="coupon_option" xsi:type="select" required="true" visible="true" sort_order="10">
+              <label translate="true">Coupon option</label>
+                    <description>
+                    <![CDATA[                 
+                    <script>
+                      jQuery('body').on('change', "#widget_options select[name='parameters\[coupon_type\]']", function(){                      
+                        couponTypeListener();
+                      });     
+    
+                      function couponTypeListener(){
+                          var couponType = jQuery("#widget_options select[name='parameters\[coupon_type\]']").val();
+                          if(couponType==0){
+                            jQuery("#widget_options select[name='parameters\[apply_coupon\]']").parent().parent().hide();
+                            jQuery("#widget_options select[name='parameters\[send_coupon\]']").parent().parent().hide();
+                            jQuery("#widget_options select[name='parameters\[confirm_need\]']").parent().parent().hide();
+                            
+                            }else if (couponType==2){
+                            jQuery("#widget_options select[name='parameters\[apply_coupon\]']").parent().parent().show();
+                            jQuery("#widget_options select[name='parameters\[send_coupon\]']").parent().parent().show();
+                            jQuery("#widget_options select[name='parameters\[confirm_need\]']").parent().parent().show();
+                            
+                          }else{
+                            jQuery("#widget_options select[name='parameters\[apply_coupon\]']").parent().parent().hide();
+                            jQuery("#widget_options select[name='parameters\[send_coupon\]']").parent().parent().show();
+                            jQuery("#widget_options select[name='parameters\[confirm_need\]']").parent().parent().show();
+                          }    
+                      } 
+                                      
+                    //belong to send_coupon field
+                    setTimeout(function(){  
+                      couponOptionListener();                                                
+                    }, 200);                                                 
+                    if ( jQuery.isFunction(jQuery.fn.on) ) {
+                      jQuery('body').on('change', "#widget_options select[name='parameters\[coupon_option\]']", function(){                      
+                        couponOptionListener();
+                      });     
+                    }else{
+                      jQuery("#widget_options select[name='parameters\[coupon_option\]']").change(function() {
+                        couponOptionListener();        
+                      });    
+                    }
+                    function couponOptionListener(){
+                        var couponOption = jQuery("#widget_options select[name='parameters\[coupon_option\]']").val();
+                        if(couponOption==3){
+                          jQuery("#widget_options input[name='parameters\[apply_coupon\]']").parent().parent().hide();
+                          jQuery("#widget_options input[name='parameters\[coupon_code\]']").parent().parent().hide();                      
+                          jQuery("#widget_options select[name='parameters\[send_coupon\]']").parent().parent().hide();
+                          jQuery("#widget_options select[name='parameters\[coupon_type\]']").parent().parent().hide();
+                          jQuery("#widget_options select[name='parameters\[rule_id\]']").parent().parent().hide();                      
+                        }else{
+                          jQuery("#widget_options select[name='parameters\[apply_coupon\]']").parent().parent().show();
+                          jQuery("#widget_options select[name='parameters\[send_coupon\]']").parent().parent().show();
+                          jQuery("#widget_options select[name='parameters\[coupon_type\]']").parent().parent().show();
+                          jQuery("#widget_options input[name='parameters\[coupon_code\]']").parent().parent().show();
+                          jQuery("#widget_options select[name='parameters\[rule_id\]']").parent().parent().show();
+                        }  
+                        var couponType = jQuery("#widget_options select[name='parameters\[coupon_type\]']").val();
+                        if(couponType==1){                    
+                          jQuery("#widget_options select[name='parameters\[rule_id\]']").parent().parent().hide();
+                        }else{
+                          jQuery("#widget_options input[name='parameters\[coupon_code\]']").parent().parent().hide();
+                        }  
+                    }    
+                    </script> 
+                    <script>                                      
+                      setTimeout(function(){          
+                          jQuery("#widget_options input[name='parameters\[widget_id\]']").val("_"+Math.random().toString(36).substr(2, 4));
+                          //belong to success_msg field                    
+                          jQuery("#insert_button").attr('onclick','').unbind('click');
+                          jQuery("#insert_button").click(function(){
+                              setTimeout(function(){
+                                var templateValue = jQuery("#widget_options textarea[name='parameters\[success_msg\]']").val();
+                                templateValue = encodeURI(templateValue).replace(/'/g, "%27"); 
+                                jQuery("#widget_options textarea[name='parameters\[success_msg\]']").val(templateValue);                                                               
+                                wWidget.insertWidget()                          
+                              }, 100);   
+                              //for case if error appeared, to prevent double encode on next insertWidget
+                              setTimeout(function(){  
+                                var templateValue = jQuery("#widget_options textarea[name='parameters\[success_msg\]']").val();
+                                templateValue = decodeURI(templateValue);
+                                jQuery("#widget_options textarea[name='parameters\[success_msg\]']").val(templateValue);                                                                                         
+                              }, 200);                                                                                 
+                                                                                 
+                          });                
+                    }, 1000);
+                    </script>                                   
+                    ]]>
+                    </description>  
+              <options>
+                  <option name="default" value="1" selected="true">
+                      <label translate="true">Show/send coupon for registration</label>
+                  </option>
+                  <option name="two" value="2">
+                      <label translate="true">Show/send coupon only if user also subscribes newsletter</label>
+                  </option>   
+                  <option name="three" value="3">
+                      <label translate="true">No coupon</label>
+                  </option>                         
+              </options>            
+          </parameter>              
+          <parameter name="coupon_type" xsi:type="select" required="true" visible="true" sort_order="11">
+              <label translate="true">Coupon type</label>
+              <description><![CDATA[Select to send/display a coupon code after the user clicks the button.]]></description>
+              <options>
+                  <option name="one" value="0" selected="true">
+                      <label translate="true">No coupon</label>
+                  </option>
+                  <option name="two" value="1">
+                      <label translate="true">Specific static coupon code</label>
+                  </option>
+                  <option name="three" value="2">
+                      <label translate="true">Auto generate dynamic coupon code for each customer</label>
+                  </option>              
+              </options>
+          </parameter>                     
+       
+    			<parameter name="coupon_code" xsi:type="text"  visible="true" sort_order="12">
+    				<label translate="true">Coupon code</label>
+            <description><![CDATA[Write coupon code you want to be sent to newly registered users]]></description>
+            <depends>
+                <parameter name="coupon_type" value="1" />
+            </depends>               
+    			</parameter>  
+    			<parameter name="rule_id" xsi:type="select" source_model="Magebird\Popup\Model\Widget\Source\Rules" visible="true" sort_order="13" >
+    				<label translate="true">Shopping Cart Price Rule ID for Coupon</label>                              
+            <description><![CDATA[Choose your shoping cart rule you want to be used to generate coupons. Only rules with field <a href="http://www.magebird.com/magento-extensions/popup-2.html?tab=faq#dynamicCoupon">Use Auto Generation</a> checked on can be used. If you want to use static coupon code change "Coupon type" the above. See instructions <a href="http://www.magebird.com/magento-extensions/popup-2.html?tab=faq#dynamicCoupon">here</a>.]]></description>
+            <depends>
+                <parameter name="coupon_type" value="2" />
+            </depends>        
+    			</parameter> 
+    			<parameter name="coupon_length" xsi:type="text"  visible="true" sort_order="14" >
+    				<label translate="true">Coupon length</label>
+            <depends>
+                <parameter name="coupon_type" value="2" />
+            </depends>  
+            <value>12</value>             
+    			</parameter> 
+    			<parameter name="coupon_prefix" xsi:type="text"  visible="true" sort_order="15" >
+    				<label translate="true">Coupon prefix</label>
+            <description><![CDATA[Leave empty if you don't want prefix]]></description>
+            <depends>
+                <parameter name="coupon_type" value="2" />
+            </depends>               
+    			</parameter>  
+    			<parameter name="coupon_expiration" xsi:type="text"  visible="true" sort_order="16" >
+    				<label translate="true">Coupon expiration (in minutes)</label>
+            <description><![CDATA[Leave empty if you want to use global settings from Shopping Cart Rule. Write minutes if you want coupon code to expire in defined minutes after user receives it. 1 day = 1440 minutes.]]></description>
+            <depends>
+                <parameter name="coupon_type" value="2" />
+            </depends>       
+    			</parameter>                                   
+          <parameter name="send_coupon" xsi:type="select" source_model="Magento\Config\Model\Config\Source\Yesno" required="true" visible="true" sort_order="17">
+              <label translate="true">Send coupon to email</label>
+              <description><![CDATA[You can display the coupon code inside the popup once the user registers. If you also want to send the coupon code to the user's email, choose Yes. The email template is located in app/code/Magebird/Popup/view/frontend/email/popup_coupon_newsletter.html]]></description>                 
+          </parameter>  
+          <parameter name="apply_coupon" xsi:type="select" required="true" visible="true" sort_order="18">
+              <label translate="true">Auto-apply coupon to cart</label>
+              <description><![CDATA[If set to Yes, the user doesn't need to enter the coupon code in cart, it'll get applied automatically.]]></description>
+              <options>
+                  <option name="yes" value="1" selected="true">
+                      <label translate="true">Yes</label>
+                  </option>
+                  <option name="no" value="2">
+                      <label translate="true">No</label>
+                  </option>            
+              </options>
+          </parameter>                   
+          <parameter name="on_success" xsi:type="select" required="true" visible="true" sort_order="19">
+              <label translate="true">On success action</label>
+              <description>What action should be taken after user registers</description>           
+              <options>
+                  <option name="one" value="1" selected="true">
+                      <label translate="true">Display message (defined in the next field)</label>
+                  </option>          
+                  <option name="two" value="2">
+                      <label translate="true">Display message and close popup</label>
+                  </option>     
+                  <option name="three" value="3">
+                      <label translate="true">Display message and redirect to new page</label>
+                  </option>                            
+              </options>                  
+          </parameter>                                                      
+    			<parameter name="success_url" xsi:type="text"  visible="true" sort_order="20" >
+    				<label translate="true">Redirect URL</label>
+            <description>A location the visitor is sent after he/she registers. Leave empty if you want just to refresh the page.</description>
+            <depends>
+                <parameter name="on_success" value="3" />
+            </depends>       
+    			</parameter>  
+    			<parameter name="redirect_delay" xsi:type="text"  visible="true" sort_order="21" >
+    				<label translate="true">Number of seconds before redirect</label>
+            <depends>
+                <parameter name="on_success" value="3" />
+            </depends> 
+            <value>2</value>      
+    			</parameter>             
+    			<parameter name="close_delay" xsi:type="text"  visible="true" sort_order="22" >
+    				<label translate="true">Close popup after how many seconds</label>
+            <depends>
+                <parameter name="on_success" value="2" />
+            </depends> 
+            <value>2</value>      
+    			</parameter>  
+    			<parameter name="success_msg" xsi:type="block"  visible="true" sort_order="23" >
+    				<label translate="true">Text/content after registration</label>        
+            <description><![CDATA[Text/content that will be shown after user registers. To display <b style="color:#f80000">coupon code</b> inside use '<b>{{var coupon_code}}</b>'. {{var coupon_code}} will be then replaced with coupon code. Example: <i><span>Your coupon is: {{var coupon_code}}. To get discount copy & paste it to offer code box in your shopping cart.</i></span><br />Tip: Html code is allowed. You can use popup editor to design your content and then copy html here.]]></description>
+            <block class="Magebird\Popup\Block\Adminhtml\Widget\SuccessMsg">                
+            </block>                                                
+    			</parameter> 
+     			<parameter name="mailchimp_list_id" xsi:type="text"  visible="true" sort_order="24" >
+    				<label translate="true">MailChimp List Id</label>
+            <description translate="true"><![CDATA[Write only if you want to use MailChimp integration, otherwise leave empty. Go to <a target="_blank" href="http://admin.mailchimp.com/lists/">http://admin.mailchimp.com/lists/</a>, click the 'settings' link and find the ID at the bottom of the page. Make sure you add your MailChimp Api Key (Stores->Configuration->MAGEBIRD EXTENSIONS->Popup->Newsletter Services->Mailchimp Api Key)]]></description>
+    			</parameter>
+     			<parameter name="gr_campaign_token" xsi:type="text"  visible="true" sort_order="25" >
+    				<label translate="true">GetResponse Campaign Token</label>
+            <description translate="true"><![CDATA[Write only if you want to use GetResponse integration, otherwise leave empty. You can find token inside <a target="_blank" href="https://app.getresponse.com/campaign_list.html">https://app.getresponse.com/campaign_list.html</a>.]]></description>
+    			</parameter>
+     			<parameter name="cm_list_id" xsi:type="text"  visible="true" sort_order="26" >
+    				<label translate="true">Campaign Monitor List Id</label>
+            <description translate="true"><![CDATA[Write only if you want to use Campaign Monitor integration, otherwise leave empty. <a target="_blank" href="https://www.campaignmonitor.com/api/getting-started/?&_ga=1.231931607.973360730.1433747080#listid">Where you can find list id?</a>]]></description>
+    			</parameter>                                                                                                                                                                             
+        </parameters>
+    </widget>  
 </widgets> 

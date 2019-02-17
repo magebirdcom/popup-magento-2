@@ -1,0 +1,30 @@
+.cssLoadedChecker2.moctod-dribegam{
+  display:none; /*DONT CHANGE THIS LINE! jQuery use this to check if css is loaded*/              
+}
+
+.registerPopup.tp2 form input{
+  display:block;
+  border: 1px solid #e0dede;
+  outline:0;
+/*  box-shadow:1px 1px 1px 1px rgba(0,0,0,.1);*/
+  color:#000;
+  padding:7px 10px;
+  font-size:14px;
+  line-height:16px;
+  margin-bottom:10px;
+  height:auto;
+}
+
+
+.registerPopup.tp2 button { 
+    font-size:18px;
+    font-weight:bold;
+    width: 100%;
+    height: 35px;  
+    text-align:center;
+    margin-top:5px;
+    padding: 0 4px;    
+    cursor: pointer;
+    border:none;  
+    display:block;
+}  

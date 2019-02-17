@@ -1,0 +1,103 @@
+<?php echo $this->getLayout()->createBlock('Magento\Framework\View\Element\Template')->setTemplate('Magebird_Popup::widget/register/global.phtml')->toHtml(); ?>
+<script type="text/javascript">  
+rgSuccessMsg['<?php echo $this->getWidgetId()?>'] = decodeURIComponent(('<?php echo urlencode($this->getData('success_msg')) ?>').replace(/\+/g, '%20'));
+rgSuccessAction['<?php echo $this->getWidgetId()?>'] = '<?php echo $this->getData('on_success');?>';
+rgSuccessUrl['<?php echo $this->getWidgetId()?>'] = '<?php echo $this->getData('success_url');?>';
+rgActionDelay['<?php echo $this->getWidgetId()?>'] = '<?php echo $this->getDelay()*1000; ?>'; 
+jQuery('head').append('<link rel="stylesheet" href="<?php echo $block->getViewFileUrl('Magebird_Popup::css/widget/register/global.css') ?>" type="text/css" />');
+jQuery('head').append('<link rel="stylesheet" href="<?php echo $block->getViewFileUrl('Magebird_Popup::css/widget/register/2.css') ?>" type="text/css" />');
+var workingText = '<?php echo __('Working')?>...';
+</script> 
+
+<?php
+$randomId = $this->getWidgetId();
+?>    
+<style>
+#<?php echo $randomId?>.registerPopup form {              
+    width: <?php echo $this->getData('width')?><?php echo $this->getData('width_unit')==2 ? "%" : "px";?>;   
+}
+
+#<?php echo $randomId?>.registerPopup form input {
+    <?php if($this->getData('width_unit')==2):?>              
+    width: 100%;
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing:        border-box;     
+    <?php else:?>    
+    width: <?php echo $this->getData('width')-7?>px;    
+    <?php endif; ?>
+}
+
+#<?php echo $randomId?>.registerPopup button {
+    background-color: <?php echo $this->getButtonColor() ?>;
+    <?php if($this->getData('width_unit')==2):?>              
+    width: 100%; 
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing:        border-box;        
+    <?php else:?>
+    width: <?php echo $this->getData('width')-8?>px;
+    <?php endif; ?>         
+    color:<?php echo $this->getButtonTextColor()?>;   
+}             
+
+</style>
+<div class="registerPopup tp1" id="<?php echo $randomId?>">   
+  <div class="error" style="display:none;"></div>
+  <form style="display:none;" action="<?php echo $this->getLoginUrl() ?>" method="post" id="login-form" data-widgetId="<?php echo $randomId;?>" class="site-form" onsubmit="return false">      
+    <ul>
+      <li>
+        <label for="login_email">Email address</label>
+        <input type="text" id="login_email" name="login_email" title="<?php echo __('Enter Your Email')?>" />
+      </li>
+      <li>
+        <label for="login_password">Password</label>
+        <input type="password" id="login_password" name="login_password" title="<?php echo __('Select Your Password')?>" />
+      </li>  
+      <li>
+        <button class="async_false" type="submit" title="<?php echo __('Login')?>">
+        <?php echo __('Login') ?>
+        </button>
+      </li>        
+    </ul>
+    <p><a href="<?php echo $this->getForgotUrl()?>"><?php echo __('Forgot password?')?></a> | <a href="#" class="register">Register</a></p>
+  </form>
+  <form action="<?php echo $this->getRegisterUrl() ?>" method="post" id="signup-form" data-widgetId="<?php echo $randomId;?>" class="site-form" onsubmit="return false">
+    <ul>
+      <li>
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname" title="<?php echo __('Enter Your First Name')?>" />
+      </li>
+      <li>
+        <label for="lastname">Last name</label>
+        <input type="text" id="lastname" name="lastname" title="<?php echo __('Enter Your Last Name')?>" />
+      </li>
+      <li>
+        <label for="email">Email address</label>
+        <input type="text" id="email" name="email" title="<?php echo __('Enter Your Email')?>" />
+      </li>
+      <li>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" title="<?php echo __('Select Your Password')?>" />
+      </li>
+      <?php if($this->getData('newsletter_option')==2): ?>
+      <li>
+        <div id="subscribeNewsletter">
+          <input type="checkbox" id="is_subscribed" name="is_subscribed"<?php if($this->getData('checkbox_checked')==1) echo ' checked="checked"'?>>
+          <label for="is_subscribed"><?php echo $this->getData('checkbox_text') ? $this->getData('checkbox_text') : __('Subscribe newsletter') ?></label>   
+        </div>
+      </li>
+      <?php endif;?>
+      <li>
+        <button class="async_false" type="submit" title="<?php echo __('Subscribe')?>">
+        <?php echo $this->getData('button_text') ? $this->getData('button_text') : __('Create Account') ?>
+        </button>
+      </li>
+    </ul>
+    <p><a href="#" class="login"><?php echo __('Login')?></a></p>
+  </form>
+</div>
+<!--DONT REMOVE! jQuery use it to check if css is loaded-->
+<div class="cssLoadedChecker moctod-dribegam"></div>
+<div class="cssLoadedChecker2 moctod-dribegam"></div>
+<script src="<?php echo $block->getViewFileUrl('Magebird_Popup::js/register.js') ?>"></script>

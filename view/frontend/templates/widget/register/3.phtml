@@ -1,0 +1,98 @@
+<?php echo $this->getLayout()->createBlock('Magento\Framework\View\Element\Template')->setTemplate('Magebird_Popup::widget/register/global.phtml')->toHtml(); ?>
+<?php $randomId = $this->getWidgetId();?>
+<script type="text/javascript">  
+rgSuccessMsg['<?php echo $this->getWidgetId()?>'] = decodeURIComponent(('<?php echo urlencode($this->getData('success_msg')) ?>').replace(/\+/g, '%20'));
+rgSuccessAction['<?php echo $this->getWidgetId()?>'] = '<?php echo $this->getData('on_success');?>';
+rgSuccessUrl['<?php echo $this->getWidgetId()?>'] = '<?php echo $this->getData('success_url');?>';
+rgActionDelay['<?php echo $this->getWidgetId()?>'] = '<?php echo $this->getDelay()*1000; ?>'; 
+jQuery('head').append('<link rel="stylesheet" href="<?php echo $block->getViewFileUrl('Magebird_Popup::css/widget/register/global.css') ?>" type="text/css" />');
+jQuery('head').append('<link rel="stylesheet" href="<?php echo $block->getViewFileUrl('Magebird_Popup::css/widget/register/3.css') ?>" type="text/css" />');
+var workingText = '<?php echo __('Working')?>...';
+</script> 
+   
+<style>
+#<?php echo $randomId?>.registerPopup form {              
+    width: <?php echo $this->getData('width')?><?php echo $this->getData('width_unit')==2 ? "%" : "px";?>;
+}
+
+#<?php echo $randomId?>.registerPopup form input{
+  width: <?php echo $this->getData('width')-20?>px;
+  <?php if($this->getData('width_unit')==2):?>
+  width:100%;   
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:        border-box;  
+  <?php endif;?>
+}
+
+#<?php echo $randomId?>.registerPopup button {
+    background-color: <?php echo $this->getButtonColor(); ?>;      
+    color:<?php echo $this->getButtonTextColor()?>;  
+}  
+</style>
+<div class="registerPopup tp3" id="<?php echo $randomId?>"> 
+      <div class="error" style="display:none;"></div>
+      <form style="display:none;" action="<?php echo $this->getLoginUrl() ?>" method="post" id="login-form" data-widgetId="<?php echo $this->getWidgetId();?>" class="site-form" onsubmit="return false">
+        <ul>
+        <li class="fields">
+          <div class="field first-field">
+              <label for="login_email" class="required"><?php echo __('E-mail') ?><em>*</em></label>
+              <div class="input-box">
+                  <input type="text" name="login_email" id="login_email" class="input-text required-entry" />
+              </div>
+          </div>
+              <div class="field">
+                  <label for="login_password" class="required"><?php echo __('Password') ?><em>*</em></label>
+                  <div class="input-box">
+                      <input type="password" name="login_password" id="login_password" title="<?php echo __('Password') ?>" class="input-text required-entry" />
+                  </div>
+              </div>           
+        </li>
+        </ul>
+        <button class="async_false" type="submit" title="Submit" id="registerButton"><span><?php echo __('Login') ?></span></button>
+        <p><a href="<?php echo $this->getForgotUrl()?>"><?php echo __('Forgot password?')?></a> | <a href="#" class="register">Register</a></p>
+      </form>
+      <form action="<?php echo $this->getRegisterUrl() ?>" method="post" id="signup-form" data-widgetId="<?php echo $randomId;?>" class="site-form" onsubmit="return false">                    
+        <ul>
+          <li class="fields">
+              <div class="field first-field">
+                  <label for="firstname" class="required"><?php echo __('First Name') ?><em>*</em></label>
+                  <div class="input-box">
+                      <input type="text" name="firstname" id="firstname" class="input-text required-entry" />
+                  </div>
+              </div>
+              <div class="field">
+                  <label for="last_name" class="required"><?php echo __('Last Name') ?><em>*</em></label>
+                  <div class="input-box">
+                      <input type="text" name="lastname" id="lastname" class="input-text required-entry" />
+                  </div>
+              </div>
+              <div class="field">
+                  <label for="email_address" class="required"><?php echo __('Email') ?><em>*</em></label>
+                  <div class="input-box">
+                      <input type="text" name="email" id="email_address" class="input-text required-entry" />
+                  </div>
+              </div>
+              <div class="field">
+                  <label for="password" class="required"><?php echo __('Password') ?><em>*</em></label>
+                  <div class="input-box">
+                      <input type="password" name="password" id="password" title="<?php echo __('Password') ?>" class="input-text required-entry" />
+                  </div>
+              </div>     
+              <?php if($this->getData('newsletter_option')==2): ?>       
+              <div id="subscribeNewsletter" class="field">
+                  
+                  <input type="checkbox" style="width: auto; float: left;" name="is_subscribed" id="is_subscribed" title="Subscribe newsletter" class="input-text"<?php if($this->getData('checkbox_checked')==1) echo ' checked="checked"'?>>
+                  <label for="is_subscribed"><?php echo $this->getData('checkbox_text') ? $this->getData('checkbox_text') : __('Subscribe newsletter') ?></label>
+              </div> 
+              <?php endif;?>            
+          </li>
+        </ul>   
+        <button class="async_false" type="submit" title="Submit" id="registerButton"><span><?php echo $this->getData('button_text') ? $this->getData('button_text') : __('Create Account') ?></span></button>
+        <p><a href="#" class="login"><?php echo __('Login')?></a></p>
+      </form>
+</div>
+<!--DONT REMOVE! jQuery use it to check if css is loaded-->
+<div class="cssLoadedChecker moctod-dribegam"></div>
+<div class="cssLoadedChecker2 moctod-dribegam"></div>
+<script src="<?php echo $block->getViewFileUrl('Magebird_Popup::js/register.js') ?>"></script>

@@ -1,0 +1,21 @@
+<script type="text/javascript">  
+jQuery('head').append('<link rel="stylesheet" href="<?php echo $block->getViewFileUrl('Magebird_Popup::css/widget/register/global.css') ?>" type="text/css" />');
+jQuery('head').append('<link rel="stylesheet" href="<?php echo $block->getViewFileUrl('Magebird_Popup::css/widget/register/1.css') ?>" type="text/css" />');
+if (typeof rgSuccessMsg === "undefined"){
+  var rgSuccessMsg = {},
+      rgSuccessAction = {},
+      rgSuccessUrl = {},
+      rgActionDelay = {},      
+      workingText = '<?php echo __('Working')?>...';
+}
+if(window.location.hash) {
+    var hash = window.location.hash.substring(1); 
+    if(hash=='login'){
+      jQuery("#login-form").show();
+      jQuery("#signup-form").hide();
+    }else{
+      jQuery("#signup-form").show();
+      jQuery("#login-form").hide();
+    }
+}
+</script> 

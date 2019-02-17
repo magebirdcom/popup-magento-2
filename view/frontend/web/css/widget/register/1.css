@@ -1,0 +1,43 @@
+.cssLoadedChecker2.moctod-dribegam{
+  display:none; /*DONT CHANGE THIS LINE! jQuery use this to check if css is loaded*/              
+}
+
+.registerPopup.tp1 form input {
+    height: auto;
+    padding: 6px 0 6px 5px;
+    font-size: 14px;
+    font-weight:bold;
+    border: 1px solid #e0dede;
+    background: #fff;
+    margin-bottom:6px;   
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -o-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    border-radius: 2px;  
+}
+
+
+.registerPopup.tp1 form button {
+    font-size:18px;
+    font-weight:bold;
+    height: 36px;
+    text-align:center;
+    padding: 0 4px;   
+    margin-top:5px; 
+    cursor: pointer;
+    border:none;  
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -o-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    border-radius: 2px;
+    display:block;
+}  
+
+.registerPopup label{
+  color:#666;
+  font-weight:bold;                    
+}

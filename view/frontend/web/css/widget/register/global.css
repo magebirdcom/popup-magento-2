@@ -1,0 +1,91 @@
+.cssLoadedChecker.moctod-dribegam{
+  display:none; /*DONT CHANGE THIS LINE! jQuery use this to check if css is loaded*/              
+}
+
+.registerPopup{
+  text-align:left;                
+}
+
+.registerPopup ul{
+  list-style:none;
+  padding:0;
+  margin:0;                
+}
+
+.registerPopup form {              
+    height:auto;
+    display:inline-block;
+    position: relative;
+}
+
+.registerPopup form input {
+  margin:0; 
+  padding:0; 
+  -webkit-box-sizing:border-box;
+  box-sizing:content-box;
+}
+
+.registerPopup form button {
+  background-image:none;    
+}
+
+.registerPopup form button:hover{ 
+  cursor: pointer;
+  opacity:0.8;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  -moz-opacity:0.8;
+  -khtml-opacity: 0.8;
+  opacity: 0.8;   
+}
+
+.registerPopup form  button:active,
+.registerPopup form  button:focus{  
+    /*background: #c42f2f;*/
+  	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  	filter: alpha(opacity=100);
+  	-moz-opacity:1;
+  	-khtml-opacity: 1;
+  	opacity: 1;
+    outline: 0;  
+}
+
+.dialogBody #thankMsg{
+  text-align:center; 
+  margin-top:40px;      
+  margin-bottom:30px;   
+} 
+
+.registerPopup input::-webkit-input-placeholder,.registerPopup input:-moz-placeholder,input:-ms-input-placeholder,.moctoddribegam:-ms-input-placeholder {
+   color: #999;
+   font-weight: normal;
+   font-style: italic; 
+}
+
+.registerPopup form table {              
+    border-spacing:0 !important;
+    border-collapse:separate;
+} 
+
+.registerPopup form input::-ms-clear {
+    display: none;
+}
+
+.registerPopup #subscribeNewsletter{
+  background-color:#f4f4f4;
+  padding:1px 10px 3px 6px;
+  margin-bottom:5px;
+  display:inline-block;                    
+}
+
+.registerPopup #subscribeNewsletter input{
+  display:inline-block;
+  width:auto !important;
+  padding:0 !important;
+  margin:0 !important;                                     
+}
+
+.registerPopup #subscribeNewsletter label{
+  line-height:21px;    
+  font-weight:normal !important;                
+}
