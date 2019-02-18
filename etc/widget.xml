@@ -677,15 +677,18 @@
           </parameter>  
     			<parameter name="checkbox_text" xsi:type="text"  visible="true" sort_order="8">
     				<label translate="true">Newsletter checkbox text</label>
-            <description><![CDATA[Text beside newsletter checkbox. Default is 'Subscribe newsletter'.]]></description>
-            <value>Subscribe newsletter</value>
+            <description><![CDATA[Text beside newsletter checkbox. Default is 'Subscribe newsletter'.]]></description>            
             <depends>
                 <parameter name="newsletter_option" value="2" />
             </depends>                   
+            <value>Subscribe newsletter</value>
     			</parameter>      
           <parameter name="checkbox_checked" xsi:type="select" required="true" visible="true" sort_order="9">
               <label translate="true">Newsletter checkbox checked</label>
               <description><![CDATA[Should be newsletter checkbox checked by default?]]></description>
+              <depends>
+                  <parameter name="newsletter_option" value="2" />
+              </depends>    
               <options>
                   <option name="default" value="1" selected="true">
                       <label translate="true">Yes</label>
@@ -693,10 +696,7 @@
                   <option name="item" value="2">
                       <label translate="true">No</label>
                   </option>             
-              </options>
-            <depends>
-                <parameter name="newsletter_option" value="2" />
-            </depends>            
+              </options>                      
           </parameter>  
           <parameter name="coupon_option" xsi:type="select" required="true" visible="true" sort_order="10">
               <label translate="true">Coupon option</label>
