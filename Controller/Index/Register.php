@@ -259,7 +259,7 @@ class Register extends \Magento\Framework\App\Action\Action
      */
     public function execute()
     {
-
+          
         if($this->getRequest()->getParam('emailCheck')!='') return;
         if($this->getRequest()->getParam('emailCheck2')!='') return;
         
@@ -352,9 +352,17 @@ class Register extends \Magento\Framework\App\Action\Action
         				$this->cart->getQuote()->setTotalsCollectedFlag(false)->collectTotals()->save();  
         				$this->cart->getQuote()->collectTotals()->save();                              
             }       
-                                 
-            $this->subscribeNewsletter($data,$coupon);
-           
+            
+                                
+            $subsribeResp = $this->subscribeNewsletter($data,$coupon);
+            if($subsribeResp['success']==false){
+                $ajaxExceptions['exceptions'][] = $subsribeResp['msg'];
+                $response = json_encode($ajaxExceptions);
+                $this->getResponse()->setBody($response);      
+                return false;       
+            }
+          
+            
 
             $_popup->setPopupData($_popup->getData('popup_id'),'goal_complition',$_popup->getData('goal_complition')+1);
             $response = json_encode(array('success' => 'success', 'coupon' => $coupon));
@@ -447,13 +455,23 @@ class Register extends \Magento\Framework\App\Action\Action
         $campaignMonitor = $this->scopeConfig->getValue('magebird_popup/services/enablecampaignmonitor');
         $getResponse     = $this->scopeConfig->getValue('magebird_popup/services/enablegetresponse');   
         //Mailchimp subscription
+
         if($mailchimpListId && $mailchimp){
-            $api = $this->_popupSubscriber->subscribeMailchimp($mailchimpListId,$data['email'],$data['firstname'],$data['lastname'],$coupon);            
-            if($api->errorCode){
-              //$ajaxExceptions['exceptions'][] = $api->errorMessage;
-              //$response = json_encode($ajaxExceptions);                
-              //return $response;           
-            }                                                                                                    
+            $result = $this->_popupSubscriber->subscribeMailchimp($mailchimpListId,$data['email'],$data['firstname'],$data['lastname'],$coupon);            
+            if (!isset($result['unique_email_id'])) {
+                if(isset($result['status']) && $result['title']=='Member Exists'){
+                  $errorMsg = utf8_encode(__('You are already subscribed to our newsletter'));
+                }elseif(isset($result['status']) && $result['title']=='Resource Not Found'){
+                  $errorMsg = "Wrong Mailchimp List id";  
+                }else{
+                  if(isset($result['detail'])){
+                    $errorMsg = $result['detail'];
+                  }else{
+                    $errorMsg = "Unknown error. Check your api key.";
+                  } 
+                } 
+                return array('success'=>false,'msg'=>$errorMsg);
+            }                                                                                                     
         } 
         
         //Campaign monitor subscription
@@ -461,10 +479,7 @@ class Register extends \Magento\Framework\App\Action\Action
             $result = $this->_popupSubscriber->subscribeCampaignMonitor($campaignMonitorId,$data['email'],$data['firstname'],$data['lastname'],$coupon);
             //echo "Result of POST /api/v3.1/subscribers/{list id}.{format}\n<br />";
             if(!$result->was_successful()) {
-                $ajaxExceptions['exceptions'][] = 'Failed with code '.$result->http_status_code;
-                //$response = json_encode($ajaxExceptions);
-                //$this->getResponse()->setBody($response);  
-                //return $response;   
+                return array('success'=>false,'msg'=>'Failed with code '.$result->http_status_code);
             }                                                                                                     
         } 
         
@@ -472,13 +487,10 @@ class Register extends \Magento\Framework\App\Action\Action
         if($getResponseListToken && $getResponse){
             $api = $this->_popupSubscriber->subscribeGetResponse($getResponseListToken,$data['email'],$data['firstname'],$data['lastname'],$coupon);
             if(isset($api->errorCode) && $api->errorCode){
-              $ajaxExceptions['exceptions'][] = $api->errorMessage;
-              //$response = json_encode($ajaxExceptions);
-              //$this->getResponse()->setBody($response);  
-              //return $response;           
+              return array('success'=>false,'msg'=>$api->errorMessage);          
             }                                                                                                    
         }
-        return '';     
+        return array('success'=>true);     
     }  
     
 }
