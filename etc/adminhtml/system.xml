@@ -197,35 +197,35 @@
                   <label>Add Subscriber's e-mail to Dotmailer</label>
                   <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
               </field>   
-              <field id="dotmailer_api_endpoint" translate="label" type="text" sortOrder="32" showInDefault="1" showInWebsite="1" showInStore="1">
+              <field id="dotmailer_api_endpoint" translate="label" type="text" sortOrder="33" showInDefault="1" showInWebsite="1" showInStore="1">
                   <label>Dotmailer API endpoint</label>
                   <comment><![CDATA[To find API endpoint navigate in your Dotmailer account to Access->API users]]></comment>
                   <depends><field id="*/*/enable_dotmailer">1</field></depends>
               </field>              
-              <field id="dotmailer_email" translate="label" type="text" sortOrder="32" showInDefault="1" showInWebsite="1" showInStore="1">
+              <field id="dotmailer_email" translate="label" type="text" sortOrder="34" showInDefault="1" showInWebsite="1" showInStore="1">
                   <label>Dotmailer api email</label>
                   <depends><field id="*/*/enable_dotmailer">1</field></depends>
               </field>   
-              <field id="dotmailer_password" translate="label" type="text" sortOrder="32" showInDefault="1" showInWebsite="1" showInStore="1">
+              <field id="dotmailer_password" translate="label" type="text" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
                   <label>Dotmailer password</label>
                   <comment><![CDATA[Make sure you also submited address book id inside newsletter widget in popup editor!]]></comment>
                   <depends><field id="*/*/enable_dotmailer">1</field></depends>
               </field> 
-               <field id="enable_nuevomailer" translate="label" type="select" sortOrder="33" showInDefault="1" showInWebsite="1" showInStore="1">
+               <field id="enable_nuevomailer" translate="label" type="select" sortOrder="36" showInDefault="1" showInWebsite="1" showInStore="1">
                   <label>Add Subscriber's e-mail to Nuevomailer</label>
                   <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
               </field>                
-               <field id="nuevomailer_url" translate="label" type="text" sortOrder="34" showInDefault="1" showInWebsite="1" showInStore="1">
+               <field id="nuevomailer_url" translate="label" type="text" sortOrder="37" showInDefault="1" showInWebsite="1" showInStore="1">
                   <label>Nuevomailer url</label>
                   <comment><![CDATA[Specify the url of directory where Nuevomailer is installed (e.g.:http://www.yourdomain.com/mailer_dir/). Make sure you also submited list id inside newsletter widget in popup editor!]]></comment>
                   <depends><field id="*/*/enable_nuevomailer">1</field></depends>
               </field>
-               <field id="nuevomailer_api_key" translate="label" type="text" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+               <field id="nuevomailer_api_key" translate="label" type="text" sortOrder="38" showInDefault="1" showInWebsite="1" showInStore="1">
                   <label>Nuevomailer url</label>
                   <comment><![CDATA[Copy it from your admins table]]></comment>
                   <depends><field id="*/*/enable_nuevomailer">1</field></depends>
               </field>              
-               <field id="nuevomailer_optin" translate="label" type="select" sortOrder="36" showInDefault="1" showInWebsite="1" showInStore="1">
+               <field id="nuevomailer_optin" translate="label" type="select" sortOrder="39" showInDefault="1" showInWebsite="1" showInStore="1">
                   <label>Use double Optin?</label>
                   <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                   <depends><field id="*/*/enable_nuevomailer">1</field></depends>
