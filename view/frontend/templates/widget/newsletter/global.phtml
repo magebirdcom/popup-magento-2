@@ -1,6 +1,7 @@
 <script type="text/javascript"> 
 if (typeof newslPopup === "undefined"){   
-  jQuery('head').append('<link rel="preload" as="style" onload="this.rel=\'stylesheet\'" href="<?php echo $block->getViewFileUrl('Magebird_Popup::css/widget/newsletter/global.css') ?>" type="text/css" />');
+  jQuery('head').append('<link rel="preload" as="style" href="<?php echo $block->getViewFileUrl('Magebird_Popup::css/widget/newsletter/global.css') ?>" type="text/css" />');
+  jQuery('head').append('<link rel="stylesheet" href="<?php echo $block->getViewFileUrl('Magebird_Popup::css/widget/newsletter/global.css') ?>" type="text/css" />');
   var newslPopup = {};
   newslPopup.ajaxUrl = '<?php echo $this->getAjaxUrl() ?>';
   newslPopup.workingText = '<?php echo __('Working')?>...';    
