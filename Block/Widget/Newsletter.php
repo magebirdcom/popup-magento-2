@@ -18,7 +18,7 @@ class Newsletter extends \Magebird\Popup\Block\Widget\Popup{
 		$html = "<script type=\"text/javascript\">\n"; 
 		$html.= "if(!jQuery(\"link[href*='/css/widget/newsletter/".$template.".css']\").length){\n";   
 		$html.= "jQuery('head').append('<link rel=\"preload\" as=\"style\" href=\"".$this->getViewFileUrl('Magebird_Popup::css/widget/newsletter/'.$template.'.css')."\" type=\"text/css\" />');";
-		$html.= "jQuery('head').append('<link rel=\"stylesheet\" href=\"http://dev.magento2b.com/pub/csstest.php\" type=\"text/css\" />');";
+		$html.= "jQuery('head').append('<link rel=\"stylesheet\" href=\"".$this->getViewFileUrl('Magebird_Popup::css/widget/newsletter/'.$template.'.css')."\" type=\"text/css\" />');";
 		$html.= "}\n";
 		$html.= "newslPopup['".$this->getWidgetId()."'] = {};\n";      
       
