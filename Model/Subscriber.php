@@ -72,13 +72,13 @@ class Subscriber extends \Magento\Framework\Model\AbstractModel{
                                  "properties"=>'{ "$first_name" : "'.$firstName.'", "$last_name" : "'.$lastName.'" }',
                                  "confirm_optin"=>$doubleOptin
                                  );
-      $ch = @curl_init($url);
-      @curl_setopt($ch, CURLOPT_POST, true);  
-      @curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
-      @curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-      @curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
-      $resp = @curl_exec($ch); 
-      @curl_close($ch); 
+      $ch = curl_init($url);
+      curl_setopt($ch, CURLOPT_POST, true);  
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
+      $resp = curl_exec($ch); 
+      curl_close($ch); 
       $resp = json_decode($resp,true);          
     }else{
   		$data=http_build_query(array("api_key"=>$apiKey,
@@ -90,7 +90,7 @@ class Subscriber extends \Magento\Framework\Model\AbstractModel{
   		$headers  = "Content-type: application/x-www-form-urlencoded\r\nContent-Length: ".strlen($data)."\r\n";
   		$options = array("http" => array("method"=>"POST","header"=>$headers,"content"=>$data));
   		$context = stream_context_create($options);
-  		$resp = @file_get_contents($url,false,$context,0,1000);
+  		$resp = file_get_contents($url,false,$context,0,1000);
   		$resp = json_decode($resp,true);  		    
     }  
 
