@@ -11,6 +11,6 @@
       }
   },
     "require": {
-        "magebird/popuplib": "*"
+        "magebird/popup-lib": "*"
     }
 }
