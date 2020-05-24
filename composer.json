@@ -9,8 +9,8 @@
       "psr-4": {
           "Magebird\\Popup\\": ""
       }
-  }
+  },
     "require": {
-        "magebird/popuplib": "*"
+        "magebird/popup-lib": "*"
     }
 }
