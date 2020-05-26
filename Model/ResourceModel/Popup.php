@@ -39,8 +39,8 @@ class Popup extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
           $action     = $this->request->getActionName();
           if($action=='massStatus' || $action=='massReset') return;              
           $this->mailchimpVars($object->getData('popup_content'));
-          $this->getResponseCustoms($object->getData('popup_content'));
-          $this->campaignMonitorCustoms($object->getData('popup_content'));
+          
+          
           $pages = $object->getData('pages');            
           if(!$pages || in_array(6,$pages)===FALSE){ 
             $object->setSpecifiedUrl('');
