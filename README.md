@@ -37,4 +37,8 @@ Step 3
 
 Check if script magebirdpopup.php is web accessible. To check if script is web accessible open www.yourdomain.com/magebirdpopup.php or www.yourdomain.com/pub/magebirdpopup.php and press ctrl+u. First line of source code should look like this:
 <script data-cfasync="false" type="text/javascript">
-If you don't see this line but you see Page not found or any other message please ask your server admin to enable it. 
+If you don't see this line but you see Page not found or any other message please ask your server admin to enable it.
+
+Step 4
+
+By default Mailchimp integration is already included and no further step is required. We support also Aweber, MailerLite, Constant Contact, Campaign Monitor, ActiveCampaign, Sendy, phpList, dotmailer, GetResponse, Klaviyo, Nuevomailer, Emma, Mailjet but you need to contact us to arrange it. 
