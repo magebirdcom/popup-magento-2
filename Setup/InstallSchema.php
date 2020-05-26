@@ -413,18 +413,18 @@ class InstallSchema implements InstallSchemaInterface{
     }
     $data=http_build_query(array("extension" =>"popup_m2","domain"=>$domain,"affId"=>0));
     if(function_exists('curl_version')){
-      $ch = @curl_init();  
-      @curl_setopt($ch, CURLOPT_URL, "https://www.magebird.com/licence/new.php?".$data); 
-      @curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-      @curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
-      $resp = @curl_exec($ch); 
-      @curl_close($ch); 
+      $ch = curl_init();  
+      curl_setopt($ch, CURLOPT_URL, "https://www.magebird.com/licence/new.php?".$data); 
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
+      $resp = curl_exec($ch); 
+      curl_close($ch); 
     }
     if($resp==null){
       $headers  = "Content-type: application/x-www-form-urlencoded\r\nContent-Length: ".strlen($data)."\r\n";
       $options = array("http" => array("method"=>"POST","header"=>$headers,"content"=>$data));
       $context = stream_context_create($options);
-      $resp=@file_get_contents("https://www.magebird.com/licence/new.php",false,$context,0,100);
+      $resp=file_get_contents("https://www.magebird.com/licence/new.php",false,$context,0,100);
     }
   }
   

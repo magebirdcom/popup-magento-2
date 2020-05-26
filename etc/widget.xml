@@ -556,62 +556,6 @@
  			<parameter name="mailchimp_list_id" xsi:type="text"  visible="true" sort_order="23" >
 				<label translate="true">MailChimp List Id</label>
         <description translate="true"><![CDATA[Write only if you want to use MailChimp integration, otherwise leave empty. Go to <a target="_blank" href="http://admin.mailchimp.com/lists/">http://admin.mailchimp.com/lists/</a>, click the 'settings' link and find the ID at the bottom of the page. Make sure you add your MailChimp Api Key (Stores->Configuration->MAGEBIRD EXTENSIONS->Popup->Newsletter Services->Mailchimp Api Key)]]></description>
-			</parameter>
- 			<parameter name="gr_campaign_token" xsi:type="text"  visible="true" sort_order="24" >
-				<label translate="true">GetResponse Campaign Token</label>
-        <description translate="true"><![CDATA[Write only if you want to use GetResponse integration, otherwise leave empty. You can find token inside <a target="_blank" href="https://app.getresponse.com/campaign_list.html">https://app.getresponse.com/campaign_list.html</a>.]]></description>
-			</parameter>
- 			<parameter name="cm_list_id" xsi:type="text"  visible="true" sort_order="25" >
-				<label translate="true">Campaign Monitor List Id</label>
-        <description translate="true"><![CDATA[Write only if you want to use Campaign Monitor integration, otherwise leave empty. <a target="_blank" href="https://www.campaignmonitor.com/api/getting-started/?&_ga=1.231931607.973360730.1433747080#listid">Where you can find list id?</a>]]></description>
-			</parameter>
- 			<parameter name="sendy_list_id" xsi:type="text"  visible="true" sort_order="26" >
-				<label translate="true">Sendy List Id</label>
-        <description translate="true"><![CDATA[Write only if you want to use Sendy integration, otherwise leave empty.]]></description>
-			</parameter>
- 			<parameter name="ac_list_id" xsi:type="text"  visible="true" sort_order="27" >
-				<label translate="true">ActiveCampaign List Id</label>
-        <description translate="true"><![CDATA[Write only if you want to use ActiveCampaign integration, otherwise leave empty. To find list id go to ActiveCampaign, click to the list and you will see id in browser url.]]></description>
-			</parameter>                   
- 			<parameter name="phplist_list_id" xsi:type="text"  visible="true" sort_order="28" >
-				<label translate="true">phpList List Id</label>
-        <description translate="true"><![CDATA[Write only if you want to use phpList integration, otherwise leave empty. Make sure you also enabled phpList inside Stores->Configuration->MAGEBIRD EXTENSIONS->Popup->Newsletter Services)]]></description>
-			</parameter>  
- 			<parameter name="klaviyo_list_id" xsi:type="text"  visible="true" sort_order="29" >
-				<label translate="true">Klaviyo List Id</label>
-        <description translate="true"><![CDATA[Write only if you want to use Klaviyo integration, otherwise leave empty. Make sure you also enabled Klaviyo inside Stores->Configuration->Popup->MAGEBIRD EXTENSIONS->Newsletter Services)]]></description>
-			</parameter>  
- 			<parameter name="mailjet_list_id" xsi:type="text"  visible="true" sort_order="30" >
-				<label translate="true">Mailjet List Id</label>
-			</parameter>  
- 			<parameter name="emma_group_ids" xsi:type="text"  visible="true" sort_order="31" >
-				<label translate="true">Emma group ids</label>
-        <description translate="true"><![CDATA[Write only if you want to use Emma integration, otherwise leave empty. Separate groups with comma if you want to insert more ids.]]></description>
-			</parameter>    
- 			<parameter name="dotmailer_list_id" xsi:type="text"  visible="true" sort_order="31" >
-				<label translate="true">Dotmailer address list id</label>
-        <description translate="true"><![CDATA[Write only if you want to use Dotmailer integration, otherwise leave empty.]]></description>
-			</parameter> 				
-			<parameter name="mailerlite_list_id" xsi:type="text"  visible="true" sort_order="32" >
-				<label translate="true">MailerLite list id</label>
-        <description translate="true"><![CDATA[Write only if you want to use MailerLite integration, otherwise leave empty.]]></description>
-			</parameter> 
-			<parameter name="aweber_list_id" xsi:type="text"  visible="true" sort_order="33" >
-				<label translate="true">AWeber list id</label>
-        <description translate="true"><![CDATA[Write only if you want to use AWeber integration, otherwise leave empty.<br />To get Lists IDS click <a href='/magebird_popup/index/aweberLists' target='_blank'>here</a>.]]></description>
-			</parameter> 
-			<parameter name="nuevomailer_list_ids" xsi:type="text"  visible="true" sort_order="34" >
-				<label translate="true">Nuevomailer List Ids</label>
-        <description><![CDATA[Seperate list ids with comma if you want to add subscriber into multiple lists (e.g.:1,2,15)]]></description>
-			</parameter>    
-			<parameter name="nuevomailer_newsletter" xsi:type="text"  visible="true" sort_order="34" >
-				<label translate="true">Nuevomailer trigger newsletter</label>
-        <description><![CDATA[Optional. Enter the newsletter ID exactly as in your newsletters table.]]></description>
-			</parameter>          
- 			<parameter name="email_services" xsi:type="block"  visible="true" sort_order="34" >
-				<label translate="true">Other Email services</label>
-        <block class="Magebird\Popup\Block\Adminhtml\Widget\EmailServices">
-        </block>
 			</parameter>   
 		</parameters>
 	</widget>
@@ -910,15 +854,7 @@
      			<parameter name="mailchimp_list_id" xsi:type="text"  visible="true" sort_order="24" >
     				<label translate="true">MailChimp List Id</label>
             <description translate="true"><![CDATA[Write only if you want to use MailChimp integration, otherwise leave empty. Go to <a target="_blank" href="http://admin.mailchimp.com/lists/">http://admin.mailchimp.com/lists/</a>, click the 'settings' link and find the ID at the bottom of the page. Make sure you add your MailChimp Api Key (Stores->Configuration->MAGEBIRD EXTENSIONS->Popup->Newsletter Services->Mailchimp Api Key)]]></description>
-    			</parameter>
-     			<parameter name="gr_campaign_token" xsi:type="text"  visible="true" sort_order="25" >
-    				<label translate="true">GetResponse Campaign Token</label>
-            <description translate="true"><![CDATA[Write only if you want to use GetResponse integration, otherwise leave empty. You can find token inside <a target="_blank" href="https://app.getresponse.com/campaign_list.html">https://app.getresponse.com/campaign_list.html</a>.]]></description>
-    			</parameter>
-     			<parameter name="cm_list_id" xsi:type="text"  visible="true" sort_order="26" >
-    				<label translate="true">Campaign Monitor List Id</label>
-            <description translate="true"><![CDATA[Write only if you want to use Campaign Monitor integration, otherwise leave empty. <a target="_blank" href="https://www.campaignmonitor.com/api/getting-started/?&_ga=1.231931607.973360730.1433747080#listid">Where you can find list id?</a>]]></description>
-    			</parameter>                                                                                                                                                                             
+    			</parameter>                                                                                                                                                                           
         </parameters>
     </widget>  
 </widgets> 

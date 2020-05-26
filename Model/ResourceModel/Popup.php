@@ -1,10 +1,6 @@
 <?php
 
 namespace Magebird\Popup\Model\ResourceModel;
-use GetResponse;
-use CS_REST_Lists;
-use MCAPI;
-use \Magebird\MailChimp;
 
 /**
  * Popup Resource Model
@@ -15,9 +11,11 @@ class Popup extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     protected $scopeConfig;
     protected $_messageManager;
     protected $request;
+    protected $mailchimp;
     public function __construct(     
         \Magento\Framework\Model\ResourceModel\Db\Context $context,
         \Magento\Framework\App\Filesystem\DirectoryList $dir,
+        \Magebird\Popup\Lib\Mailchimp\MailChimp $mailchimp,
         \Magento\Framework\Message\ManagerInterface $messageManager,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Magento\Framework\App\Request\Http $request,
@@ -25,6 +23,7 @@ class Popup extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     ) {
         parent::__construct($context, $resourcePrefix);
         $this->dir = $dir;
+        $this->mailchimp = $mailchimp;
         $this->messageManager = $messageManager;
         $this->scopeConfig = $scopeConfig;
         $this->request = $request;
@@ -190,8 +189,8 @@ class Popup extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
           $explode = explode('mailchimp_list_id="',$content);
           if(!isset($explode[1])) return;
          
-          require_once($this->dir->getPath('lib_internal') . '/magebird/popup/Mailchimp/MailChimp.php');
-          $api = new MailChimp($this->scopeConfig->getValue('magebird_popup/services/mailchimp_key'));            
+          $api = $this->mailchimp;
+          $api->setApiKey($this->scopeConfig->getValue('magebird_popup/services/mailchimp_key'));            
           $mailchimpListId = explode('"',$explode[1]);
           $mailchimpListId = $mailchimpListId[0];          
           if($mailchimpListId){
@@ -228,59 +227,6 @@ class Popup extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
             }                   
           }              
       }
-      
-      function getResponseCustoms($content){                
-          $explode = explode('gr_campaign_token="',$content);
-          if(!isset($explode[1])) return;
-          
-          require_once($this->dir->getPath('lib_internal') . '/magebird/popup/GetResponse/GetResponseAPI.class.php');
-          $api = new GetResponse($this->scopeConfig->getValue('magebird_popup/services/getresponse_key'));            
-          $getResponseToken = explode('"',$explode[1]);
-          $getResponseToken = $getResponseToken[0];          
-          if($getResponseToken){
-            $predefines = get_object_vars($api->getCampaignPredefines($getResponseToken));
-            if(array_key_exists('code',$predefines)){
-              throw new \Exception("GetResponse api error: ".$predefines['message']." or wrong campaign token.");
-            }elseif(!in_array('POPUP_COUPON',$predefines)){
-              $add = $api->addCampaignPredefine($getResponseToken,'POPUP_COUPON','Popup coupon');       
-            }        
-          }              
-      }  
-      
-      function campaignMonitorCustoms($content){
-          $explode = explode('cm_list_id="',$content);
-          if(!isset($explode[1])) return;
-                
-          require_once($this->dir->getPath('lib_internal') . '/magebird/popup/Campaignmonitor/csrest_lists.php');
-          $auth = array('api_key' => $this->scopeConfig->getValue('magebird_popup/services/campaignmonitor_key'));
-          $listId = explode('"',$explode[1]);
-          $listId = $listId[0];                      
-          $wrap = new CS_REST_Lists($listId, $auth);
-          
-          $result = $wrap->get_custom_fields();
-          if(!$result->was_successful()) {          
-              throw new \Exception("Campaign Monitor error: ".$result->http_status_code);
-          }           
-          $customFields = $result->response;
-          
-          $tagExists = false;           
-          foreach($customFields as $field){ 
-            if($field->Key=='[POPUP_COUPON]'){
-              $tagExists = true;
-              return;
-            }
-          } 
-     
-          if(!$tagExists){
-            $result = $wrap->create_custom_field(array(
-                'FieldName' => 'POPUP_COUPON',
-                'DataType' => CS_REST_CUSTOM_FIELD_TYPE_TEXT
-            ));
-          }
-          
-          if(!$result->was_successful()) {          
-              throw new \Exception("Campaign Monitor error: ".$result->http_status_code);
-          }      
-      }     
+            
         
 }

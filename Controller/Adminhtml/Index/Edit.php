@@ -70,7 +70,10 @@ class Edit extends \Magento\Backend\App\Action
           $model = $this->_objectManager->create('Magebird\Popup\Model\Template')->load($templateId);              
           $model->setData('title',$model->getData('title'));
           $model->setData('popup_id',null);
-          $randString = substr(md5(time()),0,6);
+                  
+          $randString = substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(6/strlen($x)) )),1,6);
+
+
           $model->setCookieId($randString);
           $model->setCookieTime(10);
           $model->setMaxCountTime(10);
@@ -89,12 +92,12 @@ class Edit extends \Magento\Backend\App\Action
           //because widget_id must be unique   
           $content = preg_replace_callback('/widget_id="_/',array(get_class($this),'renameWidgetIde'),$content); 
           $duplicate->setData('popup_content',$content);   
-          $randString = substr(md5(time()),0,6);
+          $randString = substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(6/strlen($x)) )),1,6);
           $duplicate->setData('cookie_id',$randString);                  
           $duplicate->setData('popup_id',0);        
         }else{
             $model = $this->_objectManager->create('Magebird\Popup\Model\Popup');
-            $randString = substr(md5(time()),0,6);
+            $randString = substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(6/strlen($x)) )),1,6);
             $model->setCookieId($randString);
             $model->setWidth(400);
             $model->setMaxWidth(400);
@@ -135,7 +138,7 @@ class Edit extends \Magento\Backend\App\Action
     }
     
     static function renameWidgetIde($matches){
-      $rand = substr( md5(rand()), 0, 2); 
+      $rand = substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(2/strlen($x)) )),1,2); 
       return $matches[0].$rand;
     }      
 }
