@@ -14,8 +14,8 @@ class Closeicon extends \Magento\Framework\Data\Form\Element\AbstractElement
         \Magento\Framework\App\Request\Http $request,
         \Magebird\Popup\Model\Popup $popup,
         \Magento\Framework\Escaper $escaper,
-        $data = [],
-        \Magento\Framework\View\Asset\Repository $assetRepo
+        \Magento\Framework\View\Asset\Repository $assetRepo,
+        array $data = []
     ) {
 
         $this->_assetRepo = $assetRepo;
